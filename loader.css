@@ -33,7 +33,7 @@
     z-index: 2;
     background-size: 100% 4px, 3px 100%;
     pointer-events: none;
-    opacity: 0.6;
+    opacity: 0.4;
 }
 
 /* Terminal Window Wrapper (Windows style) */

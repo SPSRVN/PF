@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         terminalContainer.appendChild(lineElement);
 
-        const charIndex = 0;
+        let charIndex = 0;
         const typingSpeed = Math.random() * 15 + 5;
 
         function typeChar() {
