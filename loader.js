@@ -48,14 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Trigger portfolio reveal
                 if (portfolioContent) {
                     portfolioContent.classList.add('active');
+
+                    // Force refresh GSAP ScrollTriggers after the reveal starts
+                    if (typeof ScrollTrigger !== 'undefined') {
+                        setTimeout(() => ScrollTrigger.refresh(), 500);
+                    }
                 }
 
-                // Ensure main page content is visible and animations can play
+                // Ensure main page content is visible
                 document.body.style.overflow = 'auto';
                 setTimeout(() => {
                     loader.style.display = 'none';
                 }, 800);
-            }, 600);
+            }, 400);
             return;
         }
 
@@ -64,36 +69,33 @@ document.addEventListener('DOMContentLoaded', () => {
         lineElement.className = 'terminal-line';
 
         if (lineData.type === 'header') {
-            lineElement.style.color = '#bd93f9'; // Dracula Purple matching CSS
+            lineElement.style.color = '#bd93f9';
             lineElement.style.fontWeight = 'bold';
-            lineElement.style.marginBottom = '1.2rem';
+            lineElement.style.marginBottom = '1rem';
         } else if (lineData.type === 'launch') {
-            lineElement.style.marginTop = '1.2rem';
-            lineElement.style.color = '#50fa7b'; // Dracula Green
+            lineElement.style.marginTop = '1rem';
+            lineElement.style.color = '#50fa7b';
             lineElement.style.fontSize = '1.1rem';
         }
 
         terminalContainer.appendChild(lineElement);
 
         let charIndex = 0;
-        const typingSpeed = Math.random() * 15 + 5;
+        const typingSpeed = Math.random() * 8 + 2; // Fast typing
 
         function typeChar() {
             if (charIndex < lineData.text.length) {
                 lineElement.textContent += lineData.text.charAt(charIndex);
                 charIndex++;
 
-                // Auto-scroll to bottom
                 if (terminalBody) {
                     terminalBody.scrollTop = terminalBody.scrollHeight;
                 }
 
                 setTimeout(typeChar, typingSpeed);
             } else {
-                // Done typing this line
                 lineElement.classList.add('visible');
 
-                // If there's a status, wrap it in a span for coloring
                 if (lineData.status) {
                     const text = lineElement.textContent;
                     const statusStr = `[ ${lineData.status} ]`;
@@ -104,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 currentLineIndex++;
-                const nextDelay = lineData.status === 'WAIT' ? 400 : 150;
+                const nextDelay = lineData.status === 'WAIT' ? 150 : 80;
                 setTimeout(typeLine, nextDelay);
             }
         }
@@ -112,9 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
         typeChar();
     }
 
-    // Start with a small initial delay
+    // Start delay
     setTimeout(() => {
-        document.body.style.overflow = 'hidden'; // Lock scrolling during boot
+        document.body.style.overflow = 'hidden';
         typeLine();
-    }, 300);
+    }, 200);
 });
