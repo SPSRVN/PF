@@ -425,6 +425,12 @@ img {
     }
 }
 
+.xr-glow {
+    color: var(--color-primary);
+    text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 30px var(--color-secondary);
+    transition: all 0.5s ease;
+}
+
 .nav-menu {
     display: flex;
     gap: var(--spacing-lg);

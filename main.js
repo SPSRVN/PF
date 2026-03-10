@@ -442,6 +442,34 @@ function initLazyEffects() {
 }
 
 // ========================================
+// LOGO ANIMATION (SP -> XR)
+// ========================================
+
+function initLogoAnimation() {
+    const logoChars = document.getElementById('logo-chars');
+    if (!logoChars) return;
+
+    // Start sequence after 5 seconds
+    setTimeout(() => {
+        // Step 1: Delete "SP" backwards
+        logoChars.textContent = "S";
+        setTimeout(() => {
+            logoChars.textContent = "";
+
+            // Step 2: Type "XR" with glow
+            setTimeout(() => {
+                logoChars.textContent = "X";
+                setTimeout(() => {
+                    logoChars.textContent = "XR";
+                    // Add glow effect class to text
+                    logoChars.classList.add('xr-glow');
+                }, 300); // type R
+            }, 600); // pause before typing X
+        }, 300); // delete S
+    }, 5000); // Initial interval before animation starts
+}
+
+// ========================================
 // INITIALIZE ALL
 // ========================================
 
@@ -468,6 +496,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Custom cursor (XR Style)
     initCustomCursor();
+
+    // Logo SP -> XR transition
+    initLogoAnimation();
 
     // Direct Resume Download Fallback
     const resumeBtns = document.querySelectorAll('a[href$="resume.pdf"]');
