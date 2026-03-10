@@ -18,8 +18,8 @@
 }
 
 /* Hide custom cursor elements during loading */
-#terminal-loader:not(.fade-out)~.custom-cursor,
-#terminal-loader:not(.fade-out)~.cursor-follower {
+#terminal-loader:not(.fade-out)~#portfolio-content .custom-cursor,
+#terminal-loader:not(.fade-out)~#portfolio-content .cursor-follower {
     display: none !important;
 }
 
@@ -215,16 +215,16 @@
 /* Reveal Animation for Portfolio Content */
 .reveal-content {
     opacity: 0;
-    transform: scale(0.98);
     filter: blur(10px);
     transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-        transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1),
         filter 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
 }
 
 .reveal-content.active {
     opacity: 1;
-    transform: scale(1);
     filter: blur(0);
 }
 
