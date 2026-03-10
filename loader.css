@@ -20,7 +20,7 @@
     visibility: hidden;
 }
 
-/* Stable Scanlines effect (No flicker) */
+/* Stable Scanlines effect (More subtle) */
 #terminal-loader::before {
     content: " ";
     display: block;
@@ -29,10 +29,11 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
     z-index: 2;
     background-size: 100% 4px, 3px 100%;
     pointer-events: none;
+    opacity: 0.6;
 }
 
 /* Terminal Window Wrapper (Windows style) */
@@ -43,19 +44,21 @@
     background: #0c0c0c;
     border: 1px solid #333;
     border-radius: 4px;
-    /* Windows less rounded */
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
     z-index: 5;
+    /* Subtle scanlines inside the window too */
+    background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+    background-size: 100% 2px;
 }
 
 /* Windows Title Bar Styling */
 .terminal-titlebar {
     height: 32px;
-    background: #1e1e1e;
+    background: #2d2d2d;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -100,9 +103,14 @@
     fill: #ffffff;
 }
 
+.btn-close {
+    background: #c42b1c;
+    /* Windows default Red for close */
+}
+
 .btn-close:hover {
     background: #e81123;
-    /* Windows close button red */
+    /* Bright Red on hover */
 }
 
 .btn-min:hover,
@@ -116,7 +124,6 @@
     padding: 15px;
     overflow-y: auto;
     color: #ffffff;
-    /* Windows CMD default is white */
     font-family: 'Consolas', 'Courier New', monospace;
     font-size: 14px;
     line-height: 1.4;
@@ -195,4 +202,20 @@
     margin-bottom: 20px;
     color: #bd93f9;
     white-space: pre;
+}
+
+/* Reveal Animation for Portfolio Content */
+.reveal-content {
+    opacity: 0;
+    transform: scale(0.98);
+    filter: blur(10px);
+    transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+        filter 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-content.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
 }

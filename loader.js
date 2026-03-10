@@ -1,6 +1,6 @@
 /* Terminal Loader Script */
 const terminalLines = [
-    { text: "XR DEV SYSTEM v1.0.4 INITIALIZING...", type: "header" },
+    { text: "XR DEV SYSTEM v1.1.0 INITIALIZING...", type: "header" },
     { text: "Checking ADB installation...", status: "WAIT" },
     { text: "ADB version 34.0.4-10411341 [ OK ]", status: "OK" },
     { text: "Scanning USB devices...", status: "WAIT" },
@@ -11,7 +11,7 @@ const terminalLines = [
     { text: "Loading OpenXR modules...", status: "OK" },
     { text: "Preparing developer environment...", status: "OK" },
     { text: "Portfolio interface ready.", status: "OK" },
-    { text: "Launching XR Developer Portfolio...", type: "launch" }
+    { text: "Launching Saravana Prakash portfolio...", type: "launch" }
 ];
 
 const asciiLogo = `
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('terminal-loader');
     const terminalBody = document.getElementById('terminal-body');
     const terminalContainer = document.getElementById('terminal-content');
+    const portfolioContent = document.getElementById('portfolio-content');
 
     if (!loader || !terminalContainer) return;
 
@@ -43,6 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // End sequence
             setTimeout(() => {
                 loader.classList.add('fade-out');
+
+                // Trigger portfolio reveal
+                if (portfolioContent) {
+                    portfolioContent.classList.add('active');
+                }
+
                 // Ensure main page content is visible and animations can play
                 document.body.style.overflow = 'auto';
                 setTimeout(() => {
@@ -57,19 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
         lineElement.className = 'terminal-line';
 
         if (lineData.type === 'header') {
-            lineElement.style.color = '#a855f7';
+            lineElement.style.color = '#bd93f9'; // Dracula Purple matching CSS
             lineElement.style.fontWeight = 'bold';
             lineElement.style.marginBottom = '1.2rem';
         } else if (lineData.type === 'launch') {
             lineElement.style.marginTop = '1.2rem';
-            lineElement.style.color = '#00ff00';
+            lineElement.style.color = '#50fa7b'; // Dracula Green
             lineElement.style.fontSize = '1.1rem';
         }
 
         terminalContainer.appendChild(lineElement);
 
         let charIndex = 0;
-        const typingSpeed = Math.random() * 20 + 5; // Slightly faster typing for windowed mode
+        const typingSpeed = Math.random() * 20 + 5;
 
         function typeChar() {
             if (charIndex < lineData.text.length) {

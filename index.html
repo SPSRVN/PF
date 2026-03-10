@@ -51,604 +51,622 @@
             </div>
         </div>
     </div>
-    <!-- Custom XR Cursor -->
-    <div class="custom-cursor"></div>
-    <div class="cursor-follower"></div>
+    <!-- Portfolio Reveal Wrapper -->
+    <div id="portfolio-content" class="reveal-content">
+        <!-- Custom XR Cursor -->
+        <div class="custom-cursor"></div>
+        <div class="cursor-follower"></div>
 
-    <!-- 3D Background Canvas -->
-    <canvas id="bg-canvas"></canvas>
+        <!-- 3D Background Canvas -->
+        <canvas id="bg-canvas"></canvas>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text"><span id="logo-chars">SP</span><span class="accent">_</span></span>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#training" class="nav-link">Training</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="nav-toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-name">Saravana Prakash R</h1>
-                <h2 class="hero-title">XR DEVELOPER</h2>
-                <p class="hero-subtitle typed-text"></p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="xr-showcase.html" class="btn btn-secondary xr-btn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" style="margin-right: 8px; vertical-align: middle;">
-                            <path
-                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                            </path>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                        </svg>
-                        Experience XR Showcase
-                    </a>
-                    <a href="assets/resume.pdf" download="Saravana_Prakash_Resume.pdf" target="_blank"
-                        rel="noopener noreferrer" class="btn btn-outline">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" style="margin-right: 8px; vertical-align: middle;">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        <span>Resume</span>
-                    </a>
+        <!-- Navigation -->
+        <nav id="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="logo-text"><span id="logo-chars">SP</span><span class="accent">_</span></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#training" class="nav-link">Training</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
+        </nav>
 
-        </div>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-name">Saravana Prakash R</h1>
+                    <h2 class="hero-title">XR DEVELOPER</h2>
+                    <p class="hero-subtitle typed-text"></p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="xr-showcase.html" class="btn btn-secondary xr-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" style="margin-right: 8px; vertical-align: middle;">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            Experience XR Showcase
+                        </a>
+                        <a href="assets/resume.pdf" download="Saravana_Prakash_Resume.pdf" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" style="margin-right: 8px; vertical-align: middle;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            <span>Resume</span>
+                        </a>
+                    </div>
+                </div>
 
-        <!-- Premium Liquid Refraction: Large, Smooth Organic Flow -->
-        <svg style="display: none;">
-            <filter id="liquid-refraction" x="-20%" y="-20%" width="140%" height="140%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.003" numOctaves="2" result="noise" seed="1">
-                    <animate attributeName="seed" from="1" to="1000" dur="200s" repeatCount="indefinite" />
-                </feTurbulence>
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G"
-                    result="refracted" />
-                <feComposite in="refracted" in2="SourceGraphic" operator="in" />
-            </filter>
+            </div>
 
-            <!-- Subtle Slab for Buttons -->
-            <filter id="liquid-slab" x="-10%" y="-10%" width="120%" height="120%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="1" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"
-                    result="refracted" />
-                <feComposite in="refracted" in2="SourceGraphic" operator="in" />
-            </filter>
-        </svg>
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-    </section>
+            <!-- Premium Liquid Refraction: Large, Smooth Organic Flow -->
+            <svg style="display: none;">
+                <filter id="liquid-refraction" x="-20%" y="-20%" width="140%" height="140%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.003" numOctaves="2" result="noise" seed="1">
+                        <animate attributeName="seed" from="1" to="1000" dur="200s" repeatCount="indefinite" />
+                    </feTurbulence>
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R"
+                        yChannelSelector="G" result="refracted" />
+                    <feComposite in="refracted" in2="SourceGraphic" operator="in" />
+                </filter>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="lead">Innovative AR/VR Developer with a passion for creating immersive experiences and
-                        training solutions.</p>
-                    <p>I specialize in leveraging expertise in virtual reality design and development to contribute to
-                        cutting-edge projects that enhance learning, safety, and engagement in dynamic environments.
-                        With experience across multiple VR platforms including Oculus Quest, HTC Vive, and Vision Pro, I
-                        bring ideas to life through immersive technology.</p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">425+</span>
-                            <span class="stat-label">Training Hours</span>
+                <!-- Subtle Slab for Buttons -->
+                <filter id="liquid-slab" x="-10%" y="-10%" width="120%" height="120%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="1" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R"
+                        yChannelSelector="G" result="refracted" />
+                    <feComposite in="refracted" in2="SourceGraphic" operator="in" />
+                </filter>
+            </svg>
+            <div class="scroll-indicator">
+                <span></span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="lead">Innovative AR/VR Developer with a passion for creating immersive experiences and
+                            training solutions.</p>
+                        <p>I specialize in leveraging expertise in virtual reality design and development to contribute
+                            to
+                            cutting-edge projects that enhance learning, safety, and engagement in dynamic environments.
+                            With experience across multiple VR platforms including Oculus Quest, HTC Vive, and Vision
+                            Pro, I
+                            bring ideas to life through immersive technology.</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">425+</span>
+                                <span class="stat-label">Training Hours</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">13+</span>
+                                <span class="stat-label">Major Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">13+</span>
-                            <span class="stat-label">Major Projects</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">4+</span>
-                            <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="about-info">
+                        <div class="info-card glass">
+                            <h3>Contact Information</h3>
+                            <div class="info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <a href="mailto:saravana.pmfsp@gmail.com">saravana.pmfsp@gmail.com</a>
+                            </div>
+                            <div class="info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                                <a href="tel:+918344090472">+91 8344090472</a>
+                            </div>
+                            <div class="info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Karaikal, India - 609603</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-info">
-                    <div class="info-card glass">
-                        <h3>Contact Information</h3>
-                        <div class="info-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section experience">
+            <div class="container">
+                <h2 class="section-title">Work Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content glass">
+                            <span class="timeline-date">JAN 2025 &ndash; SEP 2025</span>
+                            <h3>Engineer - Immersive Tech</h3>
+                            <h4>Digifox Studio</h4>
+                            <ul>
+                                <li>Developed safety training module and vehicle simulator for industrial applications
+                                </li>
+                                <li>Built AR car configurator using ARCore technology</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content glass">
+                            <span class="timeline-date">MAY 2022 &ndash; NOV 2024</span>
+                            <h3>AR/VR Developer</h3>
+                            <h4>Madras Mindworks</h4>
+                            <ul>
+                                <li>Built multi-sensory AR/VR applications using Unity and Unreal Engine</li>
+                                <li>Worked with Oculus Quest, HTC Vive, and Vision Pro devices</li>
+                                <li>Completed 250+ hours of specialized AR/VR development training</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content glass">
+                            <span class="timeline-date">JUN 2021 &ndash; MAY 2022</span>
+                            <h3>Web Developer</h3>
+                            <h4>Avon Solutions</h4>
+                            <ul>
+                                <li>Maintained websites, ensuring responsiveness and efficiency</li>
+                                <li>Collaborated with cross-functional teams to enhance UX and optimize performance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+
+                    <!-- NEW: XR Device Showcase -->
+                    <div class="project-card glass highlight" data-project="xr-showcase">
+                        <div class="project-image">
+                            <div class="project-placeholder xr-special">
+                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#00f5ff"
+                                    stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 2a10 10 0 0 1 10 10"></path>
+                                    <path d="M12 22a10 10 0 0 1-10-10"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="badge-new">NEW & LIVE</div>
+                            <h3>Interactive XR Showcase</h3>
+                            <p>Fully interactive Three.js point cloud experience featuring Meta Quest 3 and Vision Pro
+                                with
+                                morphing animations and immersive navigation.</p>
+                            <div class="project-tags">
+                                <span class="tag">Three.js</span>
+                                <span class="tag">GSAP</span>
+                                <span class="tag">Point Clouds</span>
+                            </div>
+                            <a href="xr-showcase.html" class="project-link">Launch Experience &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 1 -->
+                    <div class="project-card glass" data-project="forklift">
+                        <div class="project-image">
+                            <img src="assets/projects/forklift_vr_1773137292344.png" alt="Forklift VR Simulator"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Forklift VR Simulator</h3>
+                            <p>Engineered a VR forklift training simulator with realistic physics and collision
+                                detection.
+                                Integrated task scoring and safety evaluation mechanisms for effective operator
+                                assessment.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">VR</span>
+                                <span class="tag">Physics</span>
+                                <span class="tag">Training Systems</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card glass" data-project="multiplayer">
+                        <div class="project-image">
+                            <img src="assets/projects/multiplayer_vr_1773137312559.png" alt="Multiplayer VR"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Multiplayer VR Construction Inspection</h3>
+                            <p>Developed a real-time multiplayer VR inspection system with voice communication. Enabled
+                                collaborative site review with synchronized object interaction.</p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">Photon</span>
+                                <span class="tag">Networking</span>
+                                <span class="tag">VR</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card glass" data-project="multimode">
+                        <div class="project-image">
+                            <img src="assets/projects/multimode_vr_1773137338202.png" alt="VR Multi-Mode"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>VR Multi-Mode Experience App</h3>
+                            <p>Built a multi-mode VR application supporting 360&deg;, 180&deg;, theater, and MR
+                                experiences.
+                                Optimized rendering for smooth performance across all immersive viewing modes.</p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">VR</span>
+                                <span class="tag">360&deg;</span>
+                                <span class="tag">MR</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card glass" data-project="tractor">
+                        <div class="project-image">
+                            <img src="assets/projects/tractor_vr_1773137356377.png" alt="Tractor Simulator"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Tractor Simulator</h3>
+                            <p>Developed an immersive VR tractor simulator for commercial product demonstrations.
+                                Implemented realistic interaction mechanics and training-focused experience design.</p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">VR</span>
+                                <span class="tag">Simulator</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card glass" data-project="safety">
+                        <div class="project-image">
+                            <img src="assets/projects/safety_vr_1773134794213.png" alt="Safety VR Modules"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Safety Training Modules</h3>
+                            <p>Developed interactive VR training modules for construction and fire safety protocols.
+                                Integrated scenario-based simulations for hazard recognition and response training.</p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">VR Training</span>
+                                <span class="tag">Safety</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card glass" data-project="jewelry">
+                        <div class="project-image">
+                            <img src="assets/projects/jewelry_vr_1773134808642.png" alt="Jewelry VR Store"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Jewelry Store VR Experience</h3>
+                            <p>Built a tailored VR jewelry showroom with immersive walkthrough functionality.
+                                Implemented
+                                &ldquo;try-before-you-buy&rdquo; virtual interaction to enhance customer engagement.</p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">Interactive VR</span>
+                                <span class="tag">Retail</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 7 -->
+                    <div class="project-card glass" data-project="inspection">
+                        <div class="project-image">
+                            <img src="assets/projects/inspection_vr_1773134825437.png" alt="Inspection VR"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>VR Inspection Program</h3>
+                            <p>Designed a VR-based inspection system for nuclear research environments. Simulated
+                                inspection
+                                workflows to improve training accuracy and safety readiness.</p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">Industrial VR</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 8 -->
+                    <div class="project-card glass" data-project="printing">
+                        <div class="project-image">
+                            <img src="assets/projects/printing_vr_1773134849916.png" alt="Printing VR Training"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Post-3D Printing VR Training</h3>
+                            <p>Implemented a VR training program to streamline post-3D printing workflows. Designed
+                                guided
+                                process simulations to improve operational efficiency.</p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">Process Simulation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 9 - AI Hairstyle Generator -->
+                    <div class="project-card glass" data-project="ai-hairstyle">
+                        <div class="project-image">
+                            <img src="assets/projects/ai_hairstyle_1773134866248.png" alt="AI Hairstyle Generator"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>AI Hairstyle Generator</h3>
+                            <p>Built a real-time AI hairstyle generation system using Gemini Nano API. Integrated
+                                REST-based
+                                image processing pipeline with secure photo upload and sharing.</p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">Gemini Nano</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">REST API</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 10 - AI Event Photo Generator -->
+                    <div class="project-card glass" data-project="ai-photo">
+                        <div class="project-image">
+                            <img src="assets/projects/ai_photo_1773134883504.png" alt="AI Event Photo Generator"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>AI Event Photo Generator</h3>
+                            <p>Developed a themed AI photo generator for movie and Christmas events. Implemented
+                                prompt-driven image synthesis with real-time preview and sharing features.</p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">Gemini Nano</span>
+                                <span class="tag">AI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 11 - Tyre Manufacturing Simulation -->
+                    <div class="project-card glass" data-project="tyre-sim">
+                        <div class="project-image">
+                            <img src="assets/projects/tyre_sim_1773134910132.png" alt="Tyre Manufacturing Simulation"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Tyre Manufacturing Simulation</h3>
+                            <p>Created a 27-step interactive tyre building simulation for process visualization.
+                                Designed
+                                guided workflow logic for training and industrial demonstrations.</p>
+                            <div class="project-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">Industrial Training</span>
+                                <span class="tag">27-Step Process</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 12 - Eye-Tracking Product Analytics -->
+                    <div class="project-card glass" data-project="eye-tracking">
+                        <div class="project-image">
+                            <img src="assets/projects/eye_tracking_1773134925406.png" alt="Eye-Tracking Analytics"
+                                style="width: 100%; height: 100%; object-fit: cover;" />
+                        </div>
+                        <div class="project-content">
+                            <h3>Eye-Tracking Product Analytics</h3>
+                            <p>Developed a Quest Pro eye-tracking system for in-store product attention analysis.
+                                Streamed
+                                gaze data via WebSocket (real-time) and REST (batch) to web-based heatmap analytics.</p>
+                            <div class="project-tags">
+                                <span class="tag">Eye Tracking</span>
+                                <span class="tag">Quest Pro</span>
+                                <span class="tag">WebSocket</span>
+                                <span class="tag">REST</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Section -->
+        <section id="training" class="section training">
+            <div class="container">
+                <h2 class="section-title">Training &amp; Workshops</h2>
+                <div class="training-grid">
+                    <div class="training-card glass">
+                        <div class="training-header">
+                            <h3>AR/VR Internship Training Program</h3>
+                            <span class="training-date">MAR &ndash; APR 2025</span>
+                        </div>
+                        <p class="training-org">CK College of Engineering &amp; Technology</p>
+                        <p class="training-location">Cuddalore</p>
+                    </div>
+                    <div class="training-card glass">
+                        <div class="training-header">
+                            <h3>AR/VR Bootcamp &ndash; Center of Excellence</h3>
+                            <span class="training-date">SEP &ndash; OCT 2024</span>
+                        </div>
+                        <p class="training-org">CK College of Engineering &amp; Technology</p>
+                        <p class="training-location">Cuddalore</p>
+                    </div>
+                    <div class="training-card glass">
+                        <div class="training-header">
+                            <h3>AR/VR Bootcamp NASSCOM</h3>
+                            <span class="training-date">MAY &ndash; JUN 2024</span>
+                        </div>
+                        <p class="training-org">St. Xavier's Catholic College of Engineering</p>
+                        <p class="training-location">Nagercoil</p>
+                    </div>
+                    <div class="training-card glass">
+                        <div class="training-header">
+                            <h3>Faculty Development Program EnvisionEdu</h3>
+                            <span class="training-date">APR 2024</span>
+                        </div>
+                        <p class="training-org">Nitte Meenakshi Institute of Technology</p>
+                        <p class="training-location">Bangalore</p>
+                    </div>
+                    <div class="training-card glass">
+                        <div class="training-header">
+                            <h3>Introduction to AR/VR</h3>
+                            <span class="training-date">SEP 2023</span>
+                        </div>
+                        <p class="training-org">Velammal Institute of Technology</p>
+                        <p class="training-location">Chennai</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills">
+            <div class="container">
+                <h2 class="section-title">Skills &amp; Technologies</h2>
+                <div class="skills-content">
+                    <div class="skill-category">
+                        <h3>Primary Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item glass">
+                                <div class="skill-icon">&#x1F97D;</div>
+                                <h4>AR/VR Development</h4>
+                                <p>Unity, Unreal Engine, Meta XR SDK, Vuforia, Vision Pro (Xcode)</p>
+                            </div>
+                            <div class="skill-item glass">
+                                <div class="skill-icon">&#x1F3AE;</div>
+                                <h4>VR Platforms</h4>
+                                <p>Oculus Quest, HTC Vive, Vision Pro &mdash; VR best practices &amp; user comfort</p>
+                            </div>
+                            <div class="skill-item glass">
+                                <div class="skill-icon">&#x1F916;</div>
+                                <h4>AI Integration</h4>
+                                <p>Gemini Nano API, REST pipelines, real-time image synthesis, AI-driven XR</p>
+                            </div>
+                            <div class="skill-item glass">
+                                <div class="skill-icon">&#x1F4E1;</div>
+                                <h4>Networking &amp; APIs</h4>
+                                <p>Photon (Multiplayer), WebSocket, REST, real-time data streaming</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Secondary Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item glass">
+                                <div class="skill-icon">&#x1F4BE;</div>
+                                <h4>Database</h4>
+                                <p>SQL, Functions, Indexes, Table Management</p>
+                            </div>
+                            <div class="skill-item glass">
+                                <div class="skill-icon">&#x1F3A8;</div>
+                                <h4>Design Tools</h4>
+                                <p>Blender, Photoshop, Adobe XD, Figma, HTML/CSS</p>
+                            </div>
+                            <div class="skill-item glass">
+                                <div class="skill-icon">&#x1F4F1;</div>
+                                <h4>Android</h4>
+                                <p>AOSP Builds Testing, Android Devices</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-text">
+                        <p class="lead">Interested in collaborating on immersive XR experiences?</p>
+                        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of
+                            your
+                            vision.</p>
+                    </div>
+                    <div class="contact-methods">
+                        <a href="mailto:saravana.pmfsp@gmail.com" class="contact-btn glass">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
                                 </path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
-                            <a href="mailto:saravana.pmfsp@gmail.com">saravana.pmfsp@gmail.com</a>
-                        </div>
-                        <div class="info-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            <span>Send Email</span>
+                        </a>
+                        <a href="tel:+918344090472" class="contact-btn glass">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path
                                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                 </path>
                             </svg>
-                            <a href="tel:+918344090472">+91 8344090472</a>
-                        </div>
-                        <div class="info-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            <span>Karaikal, India - 609603</span>
-                        </div>
+                            <span>Call Me</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section experience">
-        <div class="container">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass">
-                        <span class="timeline-date">JAN 2025 &ndash; SEP 2025</span>
-                        <h3>Engineer - Immersive Tech</h3>
-                        <h4>Digifox Studio</h4>
-                        <ul>
-                            <li>Developed safety training module and vehicle simulator for industrial applications</li>
-                            <li>Built AR car configurator using ARCore technology</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass">
-                        <span class="timeline-date">MAY 2022 &ndash; NOV 2024</span>
-                        <h3>AR/VR Developer</h3>
-                        <h4>Madras Mindworks</h4>
-                        <ul>
-                            <li>Built multi-sensory AR/VR applications using Unity and Unreal Engine</li>
-                            <li>Worked with Oculus Quest, HTC Vive, and Vision Pro devices</li>
-                            <li>Completed 250+ hours of specialized AR/VR development training</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass">
-                        <span class="timeline-date">JUN 2021 &ndash; MAY 2022</span>
-                        <h3>Web Developer</h3>
-                        <h4>Avon Solutions</h4>
-                        <ul>
-                            <li>Maintained websites, ensuring responsiveness and efficiency</li>
-                            <li>Collaborated with cross-functional teams to enhance UX and optimize performance</li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2026 Saravana Prakash R. All rights reserved.</p>
+                <p class="footer-tagline">Crafting Immersive Experiences Through XR Technology</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-
-                <!-- NEW: XR Device Showcase -->
-                <div class="project-card glass highlight" data-project="xr-showcase">
-                    <div class="project-image">
-                        <div class="project-placeholder xr-special">
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#00f5ff"
-                                stroke-width="1.5">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M12 2a10 10 0 0 1 10 10"></path>
-                                <path d="M12 22a10 10 0 0 1-10-10"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="badge-new">NEW & LIVE</div>
-                        <h3>Interactive XR Showcase</h3>
-                        <p>Fully interactive Three.js point cloud experience featuring Meta Quest 3 and Vision Pro with
-                            morphing animations and immersive navigation.</p>
-                        <div class="project-tags">
-                            <span class="tag">Three.js</span>
-                            <span class="tag">GSAP</span>
-                            <span class="tag">Point Clouds</span>
-                        </div>
-                        <a href="xr-showcase.html" class="project-link">Launch Experience &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- Project 1 -->
-                <div class="project-card glass" data-project="forklift">
-                    <div class="project-image">
-                        <img src="assets/projects/forklift_vr_1773137292344.png" alt="Forklift VR Simulator"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>Forklift VR Simulator</h3>
-                        <p>Engineered a VR forklift training simulator with realistic physics and collision detection.
-                            Integrated task scoring and safety evaluation mechanisms for effective operator assessment.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">VR</span>
-                            <span class="tag">Physics</span>
-                            <span class="tag">Training Systems</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card glass" data-project="multiplayer">
-                    <div class="project-image">
-                        <img src="assets/projects/multiplayer_vr_1773137312559.png" alt="Multiplayer VR"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>Multiplayer VR Construction Inspection</h3>
-                        <p>Developed a real-time multiplayer VR inspection system with voice communication. Enabled
-                            collaborative site review with synchronized object interaction.</p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">Photon</span>
-                            <span class="tag">Networking</span>
-                            <span class="tag">VR</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card glass" data-project="multimode">
-                    <div class="project-image">
-                        <img src="assets/projects/multimode_vr_1773137338202.png" alt="VR Multi-Mode"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>VR Multi-Mode Experience App</h3>
-                        <p>Built a multi-mode VR application supporting 360&deg;, 180&deg;, theater, and MR experiences.
-                            Optimized rendering for smooth performance across all immersive viewing modes.</p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">VR</span>
-                            <span class="tag">360&deg;</span>
-                            <span class="tag">MR</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card glass" data-project="tractor">
-                    <div class="project-image">
-                        <img src="assets/projects/tractor_vr_1773137356377.png" alt="Tractor Simulator"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>Tractor Simulator</h3>
-                        <p>Developed an immersive VR tractor simulator for commercial product demonstrations.
-                            Implemented realistic interaction mechanics and training-focused experience design.</p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">VR</span>
-                            <span class="tag">Simulator</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-card glass" data-project="safety">
-                    <div class="project-image">
-                        <img src="assets/projects/safety_vr_1773134794213.png" alt="Safety VR Modules"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>Safety Training Modules</h3>
-                        <p>Developed interactive VR training modules for construction and fire safety protocols.
-                            Integrated scenario-based simulations for hazard recognition and response training.</p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">VR Training</span>
-                            <span class="tag">Safety</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card glass" data-project="jewelry">
-                    <div class="project-image">
-                        <img src="assets/projects/jewelry_vr_1773134808642.png" alt="Jewelry VR Store"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>Jewelry Store VR Experience</h3>
-                        <p>Built a tailored VR jewelry showroom with immersive walkthrough functionality. Implemented
-                            &ldquo;try-before-you-buy&rdquo; virtual interaction to enhance customer engagement.</p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">Interactive VR</span>
-                            <span class="tag">Retail</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 7 -->
-                <div class="project-card glass" data-project="inspection">
-                    <div class="project-image">
-                        <img src="assets/projects/inspection_vr_1773134825437.png" alt="Inspection VR"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>VR Inspection Program</h3>
-                        <p>Designed a VR-based inspection system for nuclear research environments. Simulated inspection
-                            workflows to improve training accuracy and safety readiness.</p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">Industrial VR</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 8 -->
-                <div class="project-card glass" data-project="printing">
-                    <div class="project-image">
-                        <img src="assets/projects/printing_vr_1773134849916.png" alt="Printing VR Training"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>Post-3D Printing VR Training</h3>
-                        <p>Implemented a VR training program to streamline post-3D printing workflows. Designed guided
-                            process simulations to improve operational efficiency.</p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">Process Simulation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 9 - AI Hairstyle Generator -->
-                <div class="project-card glass" data-project="ai-hairstyle">
-                    <div class="project-image">
-                        <img src="assets/projects/ai_hairstyle_1773134866248.png" alt="AI Hairstyle Generator"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>AI Hairstyle Generator</h3>
-                        <p>Built a real-time AI hairstyle generation system using Gemini Nano API. Integrated REST-based
-                            image processing pipeline with secure photo upload and sharing.</p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">Gemini Nano</span>
-                            <span class="tag">AI</span>
-                            <span class="tag">REST API</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 10 - AI Event Photo Generator -->
-                <div class="project-card glass" data-project="ai-photo">
-                    <div class="project-image">
-                        <img src="assets/projects/ai_photo_1773134883504.png" alt="AI Event Photo Generator"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>AI Event Photo Generator</h3>
-                        <p>Developed a themed AI photo generator for movie and Christmas events. Implemented
-                            prompt-driven image synthesis with real-time preview and sharing features.</p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">Gemini Nano</span>
-                            <span class="tag">AI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 11 - Tyre Manufacturing Simulation -->
-                <div class="project-card glass" data-project="tyre-sim">
-                    <div class="project-image">
-                        <img src="assets/projects/tyre_sim_1773134910132.png" alt="Tyre Manufacturing Simulation"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>Tyre Manufacturing Simulation</h3>
-                        <p>Created a 27-step interactive tyre building simulation for process visualization. Designed
-                            guided workflow logic for training and industrial demonstrations.</p>
-                        <div class="project-tags">
-                            <span class="tag">Unity</span>
-                            <span class="tag">Industrial Training</span>
-                            <span class="tag">27-Step Process</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 12 - Eye-Tracking Product Analytics -->
-                <div class="project-card glass" data-project="eye-tracking">
-                    <div class="project-image">
-                        <img src="assets/projects/eye_tracking_1773134925406.png" alt="Eye-Tracking Analytics"
-                            style="width: 100%; height: 100%; object-fit: cover;" />
-                    </div>
-                    <div class="project-content">
-                        <h3>Eye-Tracking Product Analytics</h3>
-                        <p>Developed a Quest Pro eye-tracking system for in-store product attention analysis. Streamed
-                            gaze data via WebSocket (real-time) and REST (batch) to web-based heatmap analytics.</p>
-                        <div class="project-tags">
-                            <span class="tag">Eye Tracking</span>
-                            <span class="tag">Quest Pro</span>
-                            <span class="tag">WebSocket</span>
-                            <span class="tag">REST</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Training Section -->
-    <section id="training" class="section training">
-        <div class="container">
-            <h2 class="section-title">Training &amp; Workshops</h2>
-            <div class="training-grid">
-                <div class="training-card glass">
-                    <div class="training-header">
-                        <h3>AR/VR Internship Training Program</h3>
-                        <span class="training-date">MAR &ndash; APR 2025</span>
-                    </div>
-                    <p class="training-org">CK College of Engineering &amp; Technology</p>
-                    <p class="training-location">Cuddalore</p>
-                </div>
-                <div class="training-card glass">
-                    <div class="training-header">
-                        <h3>AR/VR Bootcamp &ndash; Center of Excellence</h3>
-                        <span class="training-date">SEP &ndash; OCT 2024</span>
-                    </div>
-                    <p class="training-org">CK College of Engineering &amp; Technology</p>
-                    <p class="training-location">Cuddalore</p>
-                </div>
-                <div class="training-card glass">
-                    <div class="training-header">
-                        <h3>AR/VR Bootcamp NASSCOM</h3>
-                        <span class="training-date">MAY &ndash; JUN 2024</span>
-                    </div>
-                    <p class="training-org">St. Xavier's Catholic College of Engineering</p>
-                    <p class="training-location">Nagercoil</p>
-                </div>
-                <div class="training-card glass">
-                    <div class="training-header">
-                        <h3>Faculty Development Program EnvisionEdu</h3>
-                        <span class="training-date">APR 2024</span>
-                    </div>
-                    <p class="training-org">Nitte Meenakshi Institute of Technology</p>
-                    <p class="training-location">Bangalore</p>
-                </div>
-                <div class="training-card glass">
-                    <div class="training-header">
-                        <h3>Introduction to AR/VR</h3>
-                        <span class="training-date">SEP 2023</span>
-                    </div>
-                    <p class="training-org">Velammal Institute of Technology</p>
-                    <p class="training-location">Chennai</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <div class="container">
-            <h2 class="section-title">Skills &amp; Technologies</h2>
-            <div class="skills-content">
-                <div class="skill-category">
-                    <h3>Primary Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item glass">
-                            <div class="skill-icon">&#x1F97D;</div>
-                            <h4>AR/VR Development</h4>
-                            <p>Unity, Unreal Engine, Meta XR SDK, Vuforia, Vision Pro (Xcode)</p>
-                        </div>
-                        <div class="skill-item glass">
-                            <div class="skill-icon">&#x1F3AE;</div>
-                            <h4>VR Platforms</h4>
-                            <p>Oculus Quest, HTC Vive, Vision Pro &mdash; VR best practices &amp; user comfort</p>
-                        </div>
-                        <div class="skill-item glass">
-                            <div class="skill-icon">&#x1F916;</div>
-                            <h4>AI Integration</h4>
-                            <p>Gemini Nano API, REST pipelines, real-time image synthesis, AI-driven XR</p>
-                        </div>
-                        <div class="skill-item glass">
-                            <div class="skill-icon">&#x1F4E1;</div>
-                            <h4>Networking &amp; APIs</h4>
-                            <p>Photon (Multiplayer), WebSocket, REST, real-time data streaming</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Secondary Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item glass">
-                            <div class="skill-icon">&#x1F4BE;</div>
-                            <h4>Database</h4>
-                            <p>SQL, Functions, Indexes, Table Management</p>
-                        </div>
-                        <div class="skill-item glass">
-                            <div class="skill-icon">&#x1F3A8;</div>
-                            <h4>Design Tools</h4>
-                            <p>Blender, Photoshop, Adobe XD, Figma, HTML/CSS</p>
-                        </div>
-                        <div class="skill-item glass">
-                            <div class="skill-icon">&#x1F4F1;</div>
-                            <h4>Android</h4>
-                            <p>AOSP Builds Testing, Android Devices</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-text">
-                    <p class="lead">Interested in collaborating on immersive XR experiences?</p>
-                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
-                        vision.</p>
-                </div>
-                <div class="contact-methods">
-                    <a href="mailto:saravana.pmfsp@gmail.com" class="contact-btn glass">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                            </path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <span>Send Email</span>
-                    </a>
-                    <a href="tel:+918344090472" class="contact-btn glass">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                            </path>
-                        </svg>
-                        <span>Call Me</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Saravana Prakash R. All rights reserved.</p>
-            <p class="footer-tagline">Crafting Immersive Experiences Through XR Technology</p>
-        </div>
-    </footer>
+        </footer>
+    </div> <!-- End reveal-content -->
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
