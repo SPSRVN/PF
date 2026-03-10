@@ -364,12 +364,13 @@ img {
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: rgba(255, 255, 255, 0.08);
-    /* Slightly more opaque */
-    backdrop-filter: blur(25px) saturate(160%);
-    /* Increased blur */
-    -webkit-backdrop-filter: blur(25px) saturate(160%);
+    background: rgba(255, 255, 255, 0.12);
+    /* Increased opacity for better blur visibility */
+    backdrop-filter: blur(50px) saturate(180%);
+    /* Maximized blur and saturation */
+    -webkit-backdrop-filter: blur(50px) saturate(180%);
     border-radius: inherit;
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 #navbar::after {
