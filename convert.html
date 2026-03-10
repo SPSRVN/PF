@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Converter</title>
+</head>
+
+<body>
+    <h1>Converting Images to WebP...</h1>
+    <button id="convertBtn">Start Full Conversion</button>
+    <div id="status">Waiting to start...</div>
+
+    <script>
+        const imagesToConvert = [
+            "ai_hairstyle_1773134866248.png",
+            "ai_photo_1773134883504.png",
+            "eye_tracking_1773134925406.png",
+            "forklift_vr_1773134687549.png",
+            "inspection_vr_1773134825437.png",
+            "jewelry_vr_1773134808642.png",
+            "multimode_vr_1773134750023.png",
+            "multiplayer_vr_1773134732807.png",
+            "printing_vr_1773134849916.png",
+            "safety_vr_1773134794213.png",
+            "tractor_vr_1773134770193.png",
+            "tyre_sim_1773134910132.png"
+        ];
+
+        async function processImages() {
+            const statusDiv = document.getElementById('status');
+            for (let i = 0; i < imagesToConvert.length; i++) {
+                const filename = imagesToConvert[i];
+                statusDiv.innerText = `Processing ${i + 1}/${imagesToConvert.length}: ${filename}`;
+
+                await new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.crossOrigin = 'Anonymous';
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = 524;
+                        canvas.height = 246;
+                        const ctx = canvas.getContext('2d');
+
+                        // Draw image to fill the canvas, covering it completely
+                        // This mimics object-fit: cover
+                        const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+                        const x = (canvas.width / 2) - (img.width / 2) * scale;
+                        const y = (canvas.height / 2) - (img.height / 2) * scale;
+                        ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+
+                        canvas.toBlob((blob) => {
+                            if (!blob) {
+                                console.error("Blob failed for", filename);
+                                resolve();
+                                return;
+                            }
+                            const url = URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = filename.replace('.png', '.webp');
+                            document.body.appendChild(a);
+
+                            // A short timeout to ensure browser initiates download properly
+                            setTimeout(() => {
+                                a.click();
+                                document.body.removeChild(a);
+                                setTimeout(() => {
+                                    URL.revokeObjectURL(url);
+                                    resolve();
+                                }, 200);
+                            }, 100);
+                        }, 'image/webp', 0.9);
+                    };
+                    img.onerror = (e) => {
+                        console.error("Error loading image", filename, e);
+                        resolve();
+                    };
+                    img.src = "assets/projects/" + filename;
+                });
+            }
+            statusDiv.innerText = "All Complete!";
+        }
+
+        document.getElementById('convertBtn').addEventListener('click', processImages);
+    </script>
+</body>
+
+</html>
