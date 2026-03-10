@@ -1,0 +1,14 @@
+{
+    "name": "xr-dev-tool",
+    "version": "1.0.0",
+    "description": "Terminal-style loader for XR development with Meta Quest",
+    "main": "xr-loader.js",
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "ora": "^5.4.1",
+        "figlet": "^1.5.2"
+    },
+    "scripts": {
+        "start": "node xr-loader.js"
+    }
+}
