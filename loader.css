@@ -223,9 +223,7 @@
 /* Reveal Animation for Portfolio Content */
 .reveal-content {
     opacity: 0;
-    filter: blur(10px);
-    transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-        filter 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -233,7 +231,6 @@
 
 .reveal-content.active {
     opacity: 1;
-    filter: blur(0);
 }
 
 /* Mobile Responsiveness for Terminal Window */
