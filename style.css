@@ -274,17 +274,16 @@ a:hover {
 .nav-btn-resume {
     background: transparent;
     border: 1px solid var(--color-primary);
-    padding: 10px 32px;
+    padding: 12px 36px;
     /* Increased padding within button */
-    border-radius: 30px;
+    border-radius: 40px;
     /* Rounded pill shape */
     color: var(--color-primary) !important;
     transition: all var(--transition-base);
     margin-left: 25px;
     /* More space from other text */
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    line-height: normal;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1275,19 +1274,16 @@ img {
 
 .tag {
     display: inline-block;
-    padding: 6px 16px;
-    font-size: 0.8rem;
-    /* Slightly larger for legibility */
-    font-weight: 700;
-    background: rgba(29, 147, 244, 0.15);
-    /* Increased background opacity */
-    color: var(--color-primary);
-    border: 1px solid rgba(29, 147, 244, 0.4);
-    /* Stronger border */
-    backdrop-filter: blur(5px);
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    background: rgba(29, 147, 244, 0.3);
+    color: #ffffff;
+    border: 1px solid rgba(29, 147, 244, 0.8);
+    backdrop-filter: blur(8px);
     border-radius: var(--radius-full);
     transition: all 0.3s ease;
-    text-shadow: 0 0 5px rgba(29, 147, 244, 0.2);
+    text-shadow: 0 0 8px rgba(29, 147, 244, 0.8);
 }
 
 .tag:hover {
