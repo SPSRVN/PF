@@ -236,6 +236,7 @@ function initScrollAnimations() {
         // Timeline items animation
         gsap.utils.toArray('.timeline-item').forEach((item, index) => {
             gsap.from(item, {
+                opacity: 0,
                 x: -50,
                 duration: 0.8,
                 delay: index * 0.15,
@@ -244,12 +245,13 @@ function initScrollAnimations() {
                     start: 'top 90%',
                     toggleActions: 'play none none none'
                 },
-                onComplete: () => { item.style.opacity = '1'; }
+                onComplete: () => { gsap.set(item, { clearProps: "opacity,transform" }); }
             });
         });
 
         // Project cards stagger animation
         gsap.from('.project-card', {
+            opacity: 0,
             y: 30,
             duration: 0.6,
             stagger: 0.08,
@@ -258,11 +260,12 @@ function initScrollAnimations() {
                 start: 'top 90%',
                 toggleActions: 'play none none none'
             },
-            onComplete: function() { gsap.set(this.targets(), { opacity: 1, visibility: 'visible' }); }
+            onComplete: function() { gsap.set(this.targets(), { clearProps: "opacity,transform" }); }
         });
 
         // Skills animation
         gsap.from('.skill-item', {
+            opacity: 0,
             scale: 0.9,
             duration: 0.5,
             stagger: 0.1,
@@ -271,11 +274,12 @@ function initScrollAnimations() {
                 start: 'top 90%',
                 toggleActions: 'play none none none'
             },
-            onComplete: function() { gsap.set(this.targets(), { opacity: 1, visibility: 'visible' }); }
+            onComplete: function() { gsap.set(this.targets(), { clearProps: "opacity,transform" }); }
         });
 
         // Training cards animation
         gsap.from('.training-card', {
+            opacity: 0,
             y: 30,
             duration: 0.6,
             stagger: 0.12,
@@ -284,7 +288,7 @@ function initScrollAnimations() {
                 start: 'top 90%',
                 toggleActions: 'play none none none'
             },
-            onComplete: function() { gsap.set(this.targets(), { opacity: 1, visibility: 'visible' }); }
+            onComplete: function() { gsap.set(this.targets(), { clearProps: "opacity,transform" }); }
         });
 
         // Stats counter animation
