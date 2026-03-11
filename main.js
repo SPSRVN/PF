@@ -350,6 +350,58 @@ function initProjectModals() {
 }
 
 // ========================================
+// REVEAL HIDDEN PROJECTS
+// ========================================
+
+function initProjectReveal() {
+    const btn = document.getElementById('view-more-projects-btn');
+    const hiddenProjects = document.querySelectorAll('.hidden-project');
+    
+    if (!btn) return;
+    
+    if (hiddenProjects.length === 0) {
+        btn.parentElement.style.display = 'none';
+        return;
+    }
+
+    btn.addEventListener('click', () => {
+        hiddenProjects.forEach((project, index) => {
+            // Remove hidden-project class
+            project.classList.remove('hidden-project');
+            
+            // GSAP sequential animation
+            if (typeof gsap !== 'undefined') {
+                gsap.fromTo(project, 
+                    { opacity: 0, y: 30, scale: 0.95 }, 
+                    { opacity: 1, y: 0, scale: 1, duration: 0.6, delay: index * 0.08, ease: 'power2.out' }
+                );
+            }
+        });
+
+        // Hide button after revealing
+        if (typeof gsap !== 'undefined') {
+            gsap.to(btn, {
+                opacity: 0,
+                y: 20,
+                duration: 0.4,
+                onComplete: () => {
+                    btn.parentElement.style.display = 'none';
+                }
+            });
+        } else {
+            btn.parentElement.style.display = 'none';
+        }
+
+        // Refresh ScrollTrigger so calculations map properly
+        if (typeof ScrollTrigger !== 'undefined') {
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 100);
+        }
+    });
+}
+
+// ========================================
 // CUSTOM CURSOR (Optional Enhancement)
 // ========================================
 
@@ -516,6 +568,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTypedText();
     initNavigation();
     initProjectModals();
+    initProjectReveal();
     initLazyEffects();
 
     // Custom cursor (XR Style)
