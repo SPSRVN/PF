@@ -1597,28 +1597,43 @@ img {
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
-        top: 90px;
-        left: 5%;
-        right: 5%;
+        top: 85px;
+        left: 20px;
+        right: 20px;
         flex-direction: column;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: saturate(180%) contrast(110%);
-        -webkit-backdrop-filter: saturate(180%) contrast(110%);
-        padding: var(--spacing-lg);
+        background: rgba(6, 11, 24, 0.9); /* Darker glass for better contrast */
+        backdrop-filter: blur(25px) saturate(180%) contrast(110%);
+        -webkit-backdrop-filter: blur(25px) saturate(180%) contrast(110%);
+        padding: var(--spacing-xl) var(--spacing-lg);
         gap: var(--spacing-md);
-        transform: translateY(-20px);
+        transform: translateY(-20px) scale(0.95);
         opacity: 0;
         visibility: hidden;
         transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        border: 1px solid var(--color-glass-border);
-        border-radius: 30px;
-        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        z-index: 1000;
     }
 
     .nav-menu.active {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         opacity: 1;
         visibility: visible;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        font-size: 1.1rem;
+        padding: 12px;
+        color: white; /* Brighter text on mobile */
+    }
+    
+    .nav-btn-resume {
+        margin-left: 0 !important;
+        margin-top: 10px;
+        width: 100%;
     }
 
     .nav-toggle {
@@ -1676,6 +1691,24 @@ img {
 
     .section-title {
         font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .hero-name {
+        align-items: center; /* Center for mobile */
+        text-align: center;
+    }
+
+    .hero-designation {
+        text-align: center;
+    }
+
+    .projects-grid {
+        gap: var(--spacing-lg);
+    }
+
+    .project-card {
+        border-radius: 20px;
     }
 }
 
