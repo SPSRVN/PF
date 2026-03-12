@@ -1513,23 +1513,37 @@ img {
 .disclaimer-card {
     padding: var(--spacing-lg) var(--spacing-xl);
     display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-lg);
+    flex-direction: column;
+    gap: var(--spacing-md);
     max-width: 1000px;
     margin: 0 auto;
+}
+
+.disclaimer-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.disclaimer-heading {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .disclaimer-icon {
     flex-shrink: 0;
     color: var(--color-primary);
     background: rgba(29, 147, 244, 0.1);
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 4px;
     border: 1px solid rgba(29, 147, 244, 0.2);
 }
 
