@@ -17,6 +17,7 @@
         href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="loader.css?v=2">
+    <link rel="stylesheet" href="assets/profile-card.css?v=1">
 </head>
 
 <body>
@@ -124,8 +125,38 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <div class="profile-frame glass">
-                            <img src="assets/profile_authentic.png" alt="Saravana Prakash R" class="profile-img">
+                        <div class="pc-card-wrapper" style="--pc-icon: url('https://reactbits.dev/assets/demo/iconpattern.png'); --pc-grain: url('https://reactbits.dev/assets/demo/grain.webp');">
+                            <div class="pc-behind"></div>
+                            <div class="pc-card-shell">
+                                <section class="pc-card">
+                                    <div class="pc-inside">
+                                        <div class="pc-shine"></div>
+                                        <div class="pc-glare"></div>
+                                        <div class="pc-content">
+                                            <div class="pc-details">
+                                                <h3>Saravana Prakash R</h3>
+                                            </div>
+                                        </div>
+                                        <div class="pc-content pc-avatar-content">
+                                            <img class="avatar" src="assets/profile_authentic.png" alt="Saravana Prakash R avatar" loading="lazy" onerror="this.style.display='none'" />
+                                            <div class="pc-user-info">
+                                                <div class="pc-user-details">
+                                                    <div class="pc-mini-avatar">
+                                                        <img src="assets/profile_authentic.png" alt="Saravana Prakash R mini avatar" loading="lazy" />
+                                                    </div>
+                                                    <div class="pc-user-text">
+                                                        <div class="pc-handle">@srvnsp</div>
+                                                        <div class="pc-status">Online</div>
+                                                    </div>
+                                                </div>
+                                                <button class="pc-contact-btn" type="button" aria-label="Contact Saravana Prakash R">
+                                                    Contact Me
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
                         </div>
                     </div>
                     <div class="about-text">
@@ -661,6 +692,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="assets/profile-card.js?v=1"></script>
     <script src="main.js?v=7"></script>
     <script src="loader.js?v=7"></script>
 </body>

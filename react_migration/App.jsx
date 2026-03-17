@@ -1,6 +1,7 @@
 import React from 'react';
 import { portfolioData } from './data';
 import { GlassCard, LiquidButton } from './components/UIComponents';
+import ProfileCard from './components/ProfileCard';
 import './App.css';
 
 const PortfolioApp = () => {
@@ -8,8 +9,25 @@ const PortfolioApp = () => {
         <div className="portfolio-root">
             {/* Hero Section */}
             <section id="home" className="hero">
-                <h1 className="name">{portfolioData.profile.name}</h1>
-                <h2 className="title">{portfolioData.profile.title}</h2>
+                <ProfileCard
+                  name={portfolioData.profile.name}
+                  title={portfolioData.profile.title}
+                  handle="srvnsp"
+                  status="Online"
+                  contactText="Contact Me"
+                  avatarUrl="/assets/profile_authentic.png"
+                  showUserInfo
+                  enableTilt={true}
+                  enableMobileTilt
+                  onContactClick={() => {
+                        const contactSection = document.getElementById('contact');
+                        if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  behindGlowColor="hsla(14, 100%, 70%, 0.6)"
+                  iconUrl=""
+                  behindGlowEnabled
+                  innerGradient="linear-gradient(145deg,hsla(14, 40%, 45%, 0.55) 0%,hsla(179, 60%, 70%, 0.27) 100%)"
+                />
 
                 <div className="cta-group">
                     <LiquidButton variant="primary">View Projects</LiquidButton>
