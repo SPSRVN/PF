@@ -1595,15 +1595,30 @@ img {
    ======================================== */
 
 @media (max-width: 768px) {
+    #navbar {
+        padding: 8px 0 !important;
+    }
+    
+    #navbar.scrolled {
+        padding: 4px 0 !important;
+    }
+
+    .nav-container {
+        padding: 10px 20px !important;
+        border-radius: 40px !important;
+        margin: 0 15px !important;
+    }
+
     .nav-menu {
         position: fixed;
-        top: 85px;
+        top: 70px !important;
         left: 20px;
         right: 20px;
-        flex-direction: column;
-        background: rgba(6, 11, 24, 0.9); /* Darker glass for better contrast */
-        backdrop-filter: blur(25px) saturate(180%) contrast(110%);
-        -webkit-backdrop-filter: blur(25px) saturate(180%) contrast(110%);
+        flex-direction: column !important;
+        display: flex !important; /* Ensure it is flex when active */
+        background: rgba(6, 11, 24, 0.95); /* Darker for better contrast */
+        backdrop-filter: blur(12px) saturate(160%); /* Reduced blur from 25px for mobile performance */
+        -webkit-backdrop-filter: blur(12px) saturate(160%);
         padding: var(--spacing-xl) var(--spacing-lg);
         gap: var(--spacing-md);
         transform: translateY(-20px) scale(0.95);
@@ -1637,7 +1652,8 @@ img {
     }
 
     .nav-toggle {
-        display: flex;
+        display: flex !important;
+        margin-right: 5px;
     }
 
     .nav-toggle.active span:nth-child(1) {
@@ -1694,6 +1710,15 @@ img {
         margin-bottom: var(--spacing-xl);
     }
 
+    .section {
+        padding: var(--spacing-2xl) 0 !important;
+    }
+
+    .about-content {
+        padding: 0 10px !important;
+        gap: 20px !important;
+    }
+
     .hero-name {
         align-items: center; /* Center for mobile */
         text-align: center;
@@ -1709,6 +1734,19 @@ img {
 
     .project-card {
         border-radius: 20px;
+    }
+
+    /* Simplify expensive shadows on mobile */
+    .name-line-1, .name-line-2 {
+        text-shadow: 0 0 10px currentColor; /* Single layer glow instead of 4 */
+    }
+    
+    .hero-name::after {
+        display: none; /* Disable scanlines on mobile for performance */
+    }
+
+    .glass::after {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Simpler shadow */
     }
 }
 

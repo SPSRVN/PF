@@ -13,8 +13,9 @@ function initThreeBackground() {
     camera.position.z = 5;
 
     // Create particle system
+    const isMobile = window.matchMedia("(pointer: coarse)").matches;
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 3000; // Increased density for starfield
+    const particlesCount = isMobile ? 800 : 2500; // Significantly reduced for mobile performance
     const posArray = new Float32Array(particlesCount * 3);
 
     for (let i = 0; i < particlesCount * 3; i++) {
@@ -24,7 +25,7 @@ function initThreeBackground() {
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
     const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.008, // Smaller stars
+        size: isMobile ? 0.012 : 0.008, // Slightly larger particles on mobile for visibility
         color: 0x00f2ff,
         transparent: true,
         opacity: 0.6,
@@ -34,11 +35,11 @@ function initThreeBackground() {
     const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particlesMesh);
 
-    // Create connecting lines between nearby particles
+    // Create connecting lines between nearby particles - reduced for mobile
     const linesMaterial = new THREE.LineBasicMaterial({
         color: 0x00f5ff,
         transparent: true,
-        opacity: 0.1,
+        opacity: isMobile ? 0.04 : 0.1, // Less visible/frequent lines on mobile
         blending: THREE.AdditiveBlending
     });
 

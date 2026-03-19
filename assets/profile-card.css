@@ -74,10 +74,13 @@
   box-shadow: rgba(0, 0, 0, 0.8) calc((var(--pc-pointer-from-left) * 10px) - 3px)
     calc((var(--pc-pointer-from-top) * 20px) - 6px) 20px -5px;
   transition: transform 1s ease;
-  transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+  transform: translate3d(0,0,0) rotateX(0deg) rotateY(0deg); /* Use translate3d for GPU */
   background: rgba(0, 0, 0, 0.9);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
   overflow: hidden;
+  transform-style: preserve-3d;
 }
 
 .pc-card:hover,
@@ -107,7 +110,10 @@
   position: absolute;
   background-image: var(--pc-inner-gradient-fallback);
   background-color: rgba(0, 0, 0, 0.9);
-  transform: none;
+  transform: translate3d(0,0,0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .pc-shine {
@@ -146,6 +152,7 @@
     300% 300%,
     200% 200%;
   background-repeat: repeat;
+  will-change: transform, filter; /* Acceleration for flashy effects */
 }
 
 .pc-shine::before,
@@ -217,6 +224,8 @@
   mix-blend-mode: overlay;
   filter: brightness(0.8) contrast(1.2);
   z-index: 4;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .pc-avatar-content {
@@ -430,4 +439,20 @@
   .pc-handle { font-size: 11px; }
   .pc-status { font-size: 8px; }
   .pc-contact-btn { padding: 4px 8px; font-size: 9px; border-radius: 50px; }
+}
+
+/* Optimization for mobile flickering */
+@media (pointer: coarse) {
+  .pc-avatar-content, 
+  .pc-content:not(.pc-avatar-content),
+  .pc-shine,
+  .pc-glare {
+    mix-blend-mode: normal !important; /* Some mobile browsers struggle with complex blend modes on large elements */
+    opacity: 0.9;
+  }
+  
+  .pc-inside {
+    background-image: none !important; /* Fallback for heavy gradients */
+    background-color: rgba(15, 23, 42, 0.95) !important;
+  }
 }
