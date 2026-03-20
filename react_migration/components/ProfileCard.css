@@ -416,3 +416,51 @@
   .pc-contact-btn { padding: 4px 8px; font-size: 9px; border-radius: 50px; }
 }
 
+/* Optimization for mobile flickering */
+@media (pointer: coarse), (hover: none) {
+  /* Prevent tap highlight blue flash */
+  .pc-card-wrapper * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Enforce GPU rendering and prevent layout shifts */
+  .pc-card, .pc-shine, .pc-glare, .pc-avatar-content, .pc-user-info {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Disable heavy hover effects on touch to stop tap-flicker */
+  .pc-card-wrapper:hover {
+    --card-opacity: 0 !important;
+  }
+  
+  .pc-card:hover .pc-shine {
+    filter: brightness(1.2) contrast(1.8) saturate(0.8) opacity(0.9) !important;
+    animation-play-state: running !important;
+  }
+  
+  .pc-card:hover .pc-shine::before,
+  .pc-card:hover .pc-shine::after {
+    opacity: 0 !important;
+  }
+  
+  .pc-card:hover .pc-details h3 {
+    animation: none !important;
+    filter: none !important;
+  }
+
+  /* Simplify blend modes for older/weaker mobile GPUs */
+  .pc-avatar-content, 
+  .pc-content:not(.pc-avatar-content),
+  .pc-shine,
+  .pc-glare {
+    mix-blend-mode: normal !important;
+  }
+  
+  .pc-inside {
+    background-image: none !important;
+    background-color: rgba(15, 23, 42, 0.95) !important;
+  }
+}
