@@ -542,10 +542,11 @@ function initExperienceScrollDock() {
         gsap.registerPlugin(ScrollTrigger);
 
         splitContainers.forEach(container => {
+            const parentCard = container.querySelector('.timeline-exp-left-card') || container;
             ScrollTrigger.create({
-                trigger: container,
-                start: "top 62%", // When company box arrives near center of screen
-                end: "bottom 18%", // When scrolling past the box
+                trigger: parentCard,
+                start: "top 78%", // When company box arrives in view
+                end: "bottom 15%", // When scrolling past the box
                 onEnter: () => container.classList.add('is-docked'),
                 onLeaveBack: () => container.classList.remove('is-docked'),
                 onLeave: () => container.classList.remove('is-docked'),
@@ -553,12 +554,13 @@ function initExperienceScrollDock() {
             });
         });
     } else {
-        // Observer fallback
+        // Fallback for scroll listener
         function checkScroll() {
             const viewportH = window.innerHeight;
             splitContainers.forEach(container => {
-                const rect = container.getBoundingClientRect();
-                if (rect.top <= viewportH * 0.62 && rect.bottom >= viewportH * 0.18) {
+                const parentCard = container.querySelector('.timeline-exp-left-card') || container;
+                const rect = parentCard.getBoundingClientRect();
+                if (rect.top <= viewportH * 0.78 && rect.bottom >= viewportH * 0.15) {
                     container.classList.add('is-docked');
                 } else {
                     container.classList.remove('is-docked');
