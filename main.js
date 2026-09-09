@@ -544,10 +544,12 @@ function initExperienceScrollDock() {
         splitContainers.forEach(container => {
             ScrollTrigger.create({
                 trigger: container,
-                start: "top 58%", // As Digifox arrives near the center of the screen
-                end: "bottom 15%",
+                start: "top 62%", // When company box arrives near center of screen
+                end: "bottom 18%", // When scrolling past the box
                 onEnter: () => container.classList.add('is-docked'),
                 onLeaveBack: () => container.classList.remove('is-docked'),
+                onLeave: () => container.classList.remove('is-docked'),
+                onEnterBack: () => container.classList.add('is-docked'),
             });
         });
     } else {
@@ -556,9 +558,9 @@ function initExperienceScrollDock() {
             const viewportH = window.innerHeight;
             splitContainers.forEach(container => {
                 const rect = container.getBoundingClientRect();
-                if (rect.top <= viewportH * 0.58 && rect.bottom >= viewportH * 0.15) {
+                if (rect.top <= viewportH * 0.62 && rect.bottom >= viewportH * 0.18) {
                     container.classList.add('is-docked');
-                } else if (rect.top > viewportH * 0.62) {
+                } else {
                     container.classList.remove('is-docked');
                 }
             });
