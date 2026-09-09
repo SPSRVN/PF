@@ -93,7 +93,10 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 body {
@@ -102,10 +105,19 @@ body {
     line-height: 1.7;
     color: var(--color-text-primary);
     background-color: var(--color-bg);
+    overflow-x: clip;
     overflow-x: hidden;
     position: relative;
     cursor: none;
-    /* Hide default cursor */
+    width: 100%;
+    max-width: 100%;
+}
+
+#reveal-content {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    overflow-x: hidden;
 }
 
 /* ========================================
@@ -541,8 +553,10 @@ img {
 
 .container {
     max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
+    box-sizing: border-box;
 }
 
 .section {
@@ -551,6 +565,9 @@ img {
     z-index: var(--z-base);
     opacity: 1;
     visibility: visible;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
 }
 
 .section-title {
@@ -1024,6 +1041,8 @@ img {
     gap: 0px;
     align-items: stretch;
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
     transition: grid-template-columns 0.9s cubic-bezier(0.16, 1, 0.3, 1),
                 gap 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }

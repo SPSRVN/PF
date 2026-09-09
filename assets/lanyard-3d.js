@@ -307,9 +307,43 @@
         let lastTime = performance.now();
         let prevBoxLeft = null;
         let prevBoxTop = null;
+        let isVisible = true;
+        let animRaf = null;
+
+        function startLoop() {
+            if (!isVisible) return;
+            if (animRaf) return;
+            lastTime = performance.now();
+            animRaf = requestAnimationFrame(animate);
+        }
+
+        function stopLoop() {
+            if (animRaf) {
+                cancelAnimationFrame(animRaf);
+                animRaf = null;
+            }
+        }
+
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    isVisible = entry.isIntersecting;
+                    if (isVisible) {
+                        startLoop();
+                    } else {
+                        stopLoop();
+                    }
+                });
+            }, { rootMargin: '150px 0px 150px 0px' });
+            io.observe(container);
+        }
 
         function animate() {
-            requestAnimationFrame(animate);
+            if (!isVisible) {
+                animRaf = null;
+                return;
+            }
+            animRaf = requestAnimationFrame(animate);
 
             const now = performance.now();
             const dt = Math.min((now - lastTime) / 1000, 0.033);

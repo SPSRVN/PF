@@ -93,7 +93,7 @@ class ProfileCardController {
 
     const stillFar = Math.abs(this.targetX - this.currentX) > 0.05 || Math.abs(this.targetY - this.currentY) > 0.05;
 
-    if (stillFar || document.hasFocus()) {
+    if (stillFar) {
       this.rafId = requestAnimationFrame(this.step.bind(this));
     } else {
       this.running = false;
