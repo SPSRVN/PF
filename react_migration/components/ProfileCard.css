@@ -10,7 +10,7 @@
   --background-x: 50%;
   --background-y: 50%;
   --grain: none;
-  --icon: none;
+  --icon: url("/assets/csharp-pattern.svg?v=16");
   --behind-gradient: none;
   --behind-glow-color: rgba(125, 190, 255, 0.67);
   --behind-glow-size: 25%;
@@ -108,16 +108,17 @@
 .pc-shine {
   mask-image: var(--icon);
   -webkit-mask-image: var(--icon);
-  mask-mode: luminance;
-  -webkit-mask-mode: luminance;
+  mask-mode: alpha, luminance;
+  -webkit-mask-mode: alpha;
+  mask-type: alpha;
   mask-repeat: repeat;
   -webkit-mask-repeat: repeat;
-  mask-size: 240px;
-  -webkit-mask-size: 240px;
+  mask-size: 210px;
+  -webkit-mask-size: 210px;
   mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
   -webkit-mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
   transition: filter 0.8s ease;
-  filter: brightness(1.1) contrast(1.6) saturate(0.8) opacity(0.85);
+  filter: brightness(1.2) contrast(1.7) saturate(0.9) opacity(0.9);
   animation: holo-bg 18s linear infinite;
   animation-play-state: running;
   mix-blend-mode: color-dodge;
