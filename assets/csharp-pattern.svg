@@ -1,68 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360">
   <defs>
-    <!-- Large, Spacious C# Developer Logo -->
+    <!-- C# Developer Logo -->
     <g id="csharp-logo">
       <!-- Outer Hexagon -->
-      <polygon points="0,-36 31.18,-18 31.18,18 0,36 -31.18,18 -31.18,-18" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" opacity="0.95"/>
-      <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="none" stroke="#ffffff" stroke-width="1.0" stroke-dasharray="3,4" opacity="0.5"/>
+      <polygon points="0,-34 29.4,-17 29.4,17 0,34 -29.4,17 -29.4,-17" fill="none" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" opacity="0.95"/>
+      <polygon points="0,-28 24,-14 24,14 0,28 -24,14 -24,-14" fill="none" stroke="#ffffff" stroke-width="0.9" stroke-dasharray="3,4" opacity="0.5"/>
       <!-- 'C' Shape -->
-      <path d="M 4,-17 A 18,18 0 1 0 4,17 L 4,10.5 A 11.5,11.5 0 1 1 4,-10.5 Z" fill="#ffffff" opacity="0.95"/>
+      <path d="M 4,-16 A 16,16 0 1 0 4,16 L 4,10 A 10,10 0 1 1 4,-10 Z" fill="#ffffff" opacity="0.95"/>
       <!-- '#' Sharp Symbol -->
-      <line x1="11.5" y1="-14" x2="9.5" y2="14" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round"/>
-      <line x1="20.5" y1="-14" x2="18.5" y2="14" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round"/>
-      <line x1="6" y1="-5.5" x2="24.5" y2="-5.5" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round"/>
-      <line x1="6" y1="5.5" x2="24.5" y2="5.5" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round"/>
+      <line x1="11" y1="-13" x2="9" y2="13" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+      <line x1="19.5" y1="-13" x2="17.5" y2="13" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+      <line x1="5.5" y1="-5" x2="23" y2="-5" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+      <line x1="5.5" y1="5" x2="23" y2="5" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
     </g>
 
-    <!-- Large, Spacious Modern Unity 3D Isometric Cube Logo -->
+    <!-- Official Modern Unity 3D Isometric Cube Logo -->
     <g id="unity-logo">
       <!-- Top Isometric Face -->
-      <path d="M -3.3,-39.0 L -35.07,-20.25 L 0.0,0.0 L 35.07,-20.25 L 3.3,-39.0 L 3.3,-26.25 L 15.75,-20.25 L 0.0,-10.5 L -15.75,-20.25 L -3.3,-26.25 Z" fill="#ffffff" opacity="0.95"/>
+      <path d="M -3.0,-35.0 L -31.5,-18.2 L 0.0,0.0 L 31.5,-18.2 L 3.0,-35.0 L 3.0,-23.5 L 14.1,-18.2 L 0.0,-9.4 L -14.1,-18.2 L -3.0,-23.5 Z" fill="#ffffff" opacity="0.95"/>
       <!-- Left Isometric Face -->
-      <path d="M -32.13,22.36 L 0.0,40.5 L 0.0,0.0 L -35.07,-20.25 L -35.43,16.63 L -24.39,10.26 L -25.41,-3.51 L -9.09,5.25 L -9.66,23.76 L -21.09,15.99 Z" fill="#ffffff" opacity="0.82"/>
+      <path d="M -28.9,20.1 L 0.0,36.4 L 0.0,0.0 L -31.5,-18.2 L -31.8,14.9 L -21.9,9.2 L -22.8,-3.1 L -8.2,4.7 L -8.7,21.3 L -18.9,14.4 Z" fill="#ffffff" opacity="0.82"/>
       <!-- Right Isometric Face -->
-      <path d="M 35.43,16.63 L 35.07,-20.25 L 0.0,0.0 L 0.0,40.5 L 32.13,22.36 L 21.09,15.99 L 9.66,23.76 L 9.09,5.25 L 25.41,-3.51 L 24.39,10.26 Z" fill="#ffffff" opacity="0.95"/>
+      <path d="M 31.8,14.9 L 31.5,-18.2 L 0.0,0.0 L 0.0,36.4 L 28.9,20.1 L 18.9,14.4 L 8.7,21.3 L 8.2,4.7 L 22.8,-3.1 L 21.9,9.2 Z" fill="#ffffff" opacity="0.95"/>
       <!-- Outer Hexagon Tech Accent -->
-      <polygon points="0,-43.5 37.5,-21.75 37.5,21.75 0,43.5 -37.5,21.75 -37.5,-21.75" fill="none" stroke="#ffffff" stroke-width="1.0" stroke-dasharray="4,5" opacity="0.4"/>
+      <polygon points="0,-39 33.7,-19.5 33.7,19.5 0,39 -33.7,19.5 -33.7,-19.5" fill="none" stroke="#ffffff" stroke-width="0.9" stroke-dasharray="4,5" opacity="0.4"/>
     </g>
 
     <!-- Tech Hologram Spatial Anchor Dot -->
     <g id="holo-node">
-      <circle cx="0" cy="0" r="2.2" fill="#ffffff" opacity="0.6"/>
-      <circle cx="0" cy="0" r="7.5" fill="none" stroke="#ffffff" stroke-width="0.8" stroke-dasharray="2,3" opacity="0.35"/>
+      <circle cx="0" cy="0" r="2.0" fill="#ffffff" opacity="0.6"/>
+      <circle cx="0" cy="0" r="7.0" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-dasharray="2,3" opacity="0.35"/>
     </g>
   </defs>
 
   <!-- Transparent Background for Pure Alpha Channel Masking -->
 
   <!-- Subtle Ambient Diagonal Mesh -->
-  <path d="M 0,0 L 320,320 M 320,0 L 0,320" stroke="#ffffff" stroke-width="0.6" stroke-dasharray="3,10" opacity="0.18"/>
-  <path d="M 160,0 L 160,320 M 0,160 L 320,160" stroke="#ffffff" stroke-width="0.6" stroke-dasharray="3,10" opacity="0.15"/>
+  <path d="M 0,0 L 360,360 M 360,0 L 0,360" stroke="#ffffff" stroke-width="0.6" stroke-dasharray="3,10" opacity="0.18"/>
+  <path d="M 180,0 L 180,360 M 0,180 L 360,180" stroke="#ffffff" stroke-width="0.6" stroke-dasharray="3,10" opacity="0.15"/>
 
-  <!-- ==================== ROW 1 (y = 0) ==================== -->
-  <!-- Corners: Unity Logo -->
+  <!-- ==================== ROW 1 (y = 0): UNITY - C# - UNITY ==================== -->
   <g transform="translate(0, 0)"><use href="#unity-logo"/></g>
-  <g transform="translate(320, 0)"><use href="#unity-logo"/></g>
-  <!-- Midpoint: C# Logo -->
-  <g transform="translate(160, 0)"><use href="#csharp-logo"/></g>
+  <g transform="translate(180, 0)"><use href="#csharp-logo"/></g>
+  <g transform="translate(360, 0)"><use href="#unity-logo"/></g>
 
-  <!-- ==================== ROW 2 (y = 160) ==================== -->
-  <!-- Left/Right: Unity Logo -->
-  <g transform="translate(0, 160)"><use href="#unity-logo"/></g>
-  <g transform="translate(320, 160)"><use href="#unity-logo"/></g>
-  <!-- Center: C# Logo -->
-  <g transform="translate(160, 160)"><use href="#csharp-logo"/></g>
+  <!-- ==================== ROW 2 (y = 180): C# - UNITY - C# ==================== -->
+  <g transform="translate(0, 180)"><use href="#csharp-logo"/></g>
+  <g transform="translate(180, 180)"><use href="#unity-logo"/></g>
+  <g transform="translate(360, 180)"><use href="#csharp-logo"/></g>
 
-  <!-- ==================== ROW 3 (y = 320) ==================== -->
-  <!-- Corners: Unity Logo -->
-  <g transform="translate(0, 320)"><use href="#unity-logo"/></g>
-  <g transform="translate(320, 320)"><use href="#unity-logo"/></g>
-  <!-- Midpoint: C# Logo -->
-  <g transform="translate(160, 320)"><use href="#csharp-logo"/></g>
+  <!-- ==================== ROW 3 (y = 360): UNITY - C# - UNITY ==================== -->
+  <g transform="translate(0, 360)"><use href="#unity-logo"/></g>
+  <g transform="translate(180, 360)"><use href="#csharp-logo"/></g>
+  <g transform="translate(360, 360)"><use href="#unity-logo"/></g>
 
-  <!-- Spatial Nodes for Tech Grid Depth (Spaced 160px apart) -->
-  <g transform="translate(80, 80)"><use href="#holo-node"/></g>
-  <g transform="translate(240, 80)"><use href="#holo-node"/></g>
-  <g transform="translate(80, 240)"><use href="#holo-node"/></g>
-  <g transform="translate(240, 240)"><use href="#holo-node"/></g>
+  <!-- Spatial Nodes for Tech Grid Depth -->
+  <g transform="translate(90, 90)"><use href="#holo-node"/></g>
+  <g transform="translate(270, 90)"><use href="#holo-node"/></g>
+  <g transform="translate(90, 270)"><use href="#holo-node"/></g>
+  <g transform="translate(270, 270)"><use href="#holo-node"/></g>
 </svg>
