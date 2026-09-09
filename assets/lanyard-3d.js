@@ -515,10 +515,16 @@
         }
 
         // Handle dynamic container resizing during scroll docking & window resizes
+        let lastW = width;
+        let lastH = height;
         function handleContainerResize() {
             const w = container.clientWidth || 340;
             const h = container.clientHeight || 480;
             if (w < 20 || h < 20) return;
+            // Prevent thrashing WebGL buffers on minor pixel variations during transitions
+            if (Math.abs(w - lastW) < 4 && Math.abs(h - lastH) < 4) return;
+            lastW = w;
+            lastH = h;
             camera.aspect = w / h;
             camera.updateProjectionMatrix();
             renderer.setSize(w, h);
