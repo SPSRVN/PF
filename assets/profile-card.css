@@ -116,8 +116,8 @@
   -webkit-mask-mode: luminance;
   mask-repeat: repeat;
   -webkit-mask-repeat: repeat;
-  mask-size: 160px;
-  -webkit-mask-size: 160px;
+  mask-size: 240px;
+  -webkit-mask-size: 240px;
   mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
   -webkit-mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
   transition: filter 0.8s ease;

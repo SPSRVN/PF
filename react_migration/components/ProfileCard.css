@@ -107,12 +107,17 @@
 
 .pc-shine {
   mask-image: var(--icon);
+  -webkit-mask-image: var(--icon);
   mask-mode: luminance;
+  -webkit-mask-mode: luminance;
   mask-repeat: repeat;
-  mask-size: 150%;
+  -webkit-mask-repeat: repeat;
+  mask-size: 240px;
+  -webkit-mask-size: 240px;
   mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
+  -webkit-mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
   transition: filter 0.8s ease;
-  filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
+  filter: brightness(1.1) contrast(1.6) saturate(0.8) opacity(0.85);
   animation: holo-bg 18s linear infinite;
   animation-play-state: running;
   mix-blend-mode: color-dodge;
