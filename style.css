@@ -1369,15 +1369,78 @@ img {
     transform: translateX(10px);
 }
 
+.exp-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    width: 100%;
+}
+
+.exp-logo-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Subtle, vibrant ambient neon glow behind company logo */
+.exp-logo-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    background: radial-gradient(circle, rgba(0, 245, 255, 0.5) 0%, rgba(254, 53, 154, 0.28) 55%, transparent 75%);
+    border-radius: 20px;
+    filter: blur(12px);
+    opacity: 0.85;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+}
+
+.timeline-content:hover .exp-logo-wrapper::before {
+    opacity: 1;
+    filter: blur(16px);
+    transform: scale(1.12);
+}
+
+.exp-logo-img {
+    position: relative;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4),
+                0 0 18px rgba(0, 245, 255, 0.3);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s ease;
+}
+
+.timeline-content:hover .exp-logo-img {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5),
+                0 0 26px rgba(0, 245, 255, 0.5);
+}
+
 .timeline-date {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     font-size: var(--font-size-sm);
     font-weight: 600;
     color: var(--color-primary);
     background: rgba(0, 245, 255, 0.1);
-    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid rgba(0, 245, 255, 0.25);
+    padding: 6px 14px;
     border-radius: var(--radius-full);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+    box-shadow: inset 0 0 10px rgba(0, 245, 255, 0.08);
 }
 
 .timeline-content h3 {
@@ -2314,32 +2377,39 @@ img {
         border-color: rgba(255, 255, 255, 0.15) !important;
     }
 
-    /* --- Fix: date badge + company logo layout on narrow screens --- */
-    /* Make timeline-content a flex column so date sits above the logo row */
+    /* --- Clean header layout for experience cards on touch/mobile --- */
     .timeline-content {
-        display: flex;
-        flex-direction: column;
-        padding: 1.2rem !important;
+        padding: 1.5rem !important;
     }
 
-    /* Date badge: full width, no longer overlapped by logo */
-    .timeline-date {
-        display: block !important;
+    .exp-card-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: var(--spacing-sm) !important;
+        margin-bottom: var(--spacing-md) !important;
         width: 100% !important;
-        margin-bottom: 0.6rem !important;
-        padding-right: 90px; /* leave space for the logo */
-        white-space: nowrap;
-        overflow: visible;
-        position: relative;
-        z-index: 2;
     }
 
-    /* Company logo: smaller + tucked to top-right, clear of the date text */
-    .timeline-content > img[style*="position: absolute"] {
-        width: 60px !important;
-        height: 60px !important;
-        top: 1.2rem !important;
-        right: 1.2rem !important;
+    .timeline-date {
+        display: inline-flex !important;
+        width: auto !important;
+        padding: 5px 10px !important;
+        font-size: 0.78rem !important;
+        white-space: nowrap !important;
+        margin-bottom: 0 !important;
+    }
+
+    .exp-logo-img {
+        width: 48px !important;
+        height: 48px !important;
+        padding: 4px !important;
+        border-radius: 10px !important;
+    }
+
+    .exp-logo-wrapper::before {
+        inset: -4px !important;
+        filter: blur(8px) !important;
     }
 
     /* --- Project card: disable sluggish height reflow expansion --- */
