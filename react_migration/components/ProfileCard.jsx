@@ -29,7 +29,7 @@ const ProfileCardComponent = ({
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
   name = 'Javi A. Torres',
-  title = 'XR Developer',
+  title = 'Software Engineer',
   handle = 'javicodes',
   status = 'Online',
   contactText = 'Contact',
@@ -312,11 +312,6 @@ const ProfileCardComponent = ({
           <div className="pc-inside">
             <div className="pc-shine" />
             <div className="pc-glare" />
-            <div className="pc-content">
-              <div className="pc-details">
-                <h3>{name}</h3>
-              </div>
-            </div>
             <div className="pc-content pc-avatar-content">
               <img
                 className="avatar"
@@ -359,6 +354,12 @@ const ProfileCardComponent = ({
                   </button>
                 </div>
               )}
+            </div>
+            <div className="pc-content">
+              <div className="pc-details">
+                <h3>{name}</h3>
+                <p>{title}</p>
+              </div>
             </div>
           </div>
         </section>

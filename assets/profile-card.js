@@ -16,7 +16,7 @@ class ProfileCardController {
     this.shell = wrapElement.querySelector('.pc-card-shell');
     this.options = {
       enableTilt: true,
-      enableMobileTilt: true,
+      enableMobileTilt: false,
       mobileTiltSensitivity: 5,
       ...options
     };
@@ -31,7 +31,7 @@ class ProfileCardController {
     this.targetX = 0;
     this.targetY = 0;
     this.initialUntil = 0;
-    
+
     this.DEFAULT_TAU = 0.14;
     this.INITIAL_TAU = 0.6;
 
@@ -52,6 +52,15 @@ class ProfileCardController {
     const centerY = percentY - 50;
 
     const properties = {
+      '--pointer-x': `${percentX}%`,
+      '--pointer-y': `${percentY}%`,
+      '--background-x': `${adjust(percentX, 0, 100, 35, 65)}%`,
+      '--background-y': `${adjust(percentY, 0, 100, 35, 65)}%`,
+      '--pointer-from-center': `${clamp(Math.hypot(percentY - 50, percentX - 50) / 50, 0, 1)}`,
+      '--pointer-from-top': `${percentY / 100}`,
+      '--pointer-from-left': `${percentX / 100}`,
+      '--rotate-x': `${round(-(centerX / 5))}deg`,
+      '--rotate-y': `${round(centerY / 4)}deg`,
       '--pc-pointer-x': `${percentX}%`,
       '--pc-pointer-y': `${percentY}%`,
       '--pc-background-x': `${adjust(percentX, 0, 100, 35, 65)}%`,
@@ -116,6 +125,7 @@ class ProfileCardController {
   }
 
   toCenter() {
+    if (!this.shell) return;
     this.setTarget(this.shell.clientWidth / 2, this.shell.clientHeight / 2);
   }
 
@@ -124,26 +134,28 @@ class ProfileCardController {
     this.start();
   }
 
-  getOffsets(evt) {
-    const rect = this.shell.getBoundingClientRect();
+  getOffsets(evt, el) {
+    const rect = el.getBoundingClientRect();
     let clientX = evt.clientX;
     let clientY = evt.clientY;
-    
-    // Handle touch events
+
     if (evt.touches && evt.touches.length > 0) {
-        clientX = evt.touches[0].clientX;
-        clientY = evt.touches[0].clientY;
+      clientX = evt.touches[0].clientX;
+      clientY = evt.touches[0].clientY;
     }
-    
+
     return { x: clientX - rect.left, y: clientY - rect.top };
   }
 
-  handlePointerMove = (evt) => {
-    const { x, y } = this.getOffsets(evt);
+  handlePointerMove = (event) => {
+    if (!this.shell) return;
+    const { x, y } = this.getOffsets(event, this.shell);
     this.setTarget(x, y);
-  }
+  };
 
-  handlePointerEnter = (evt) => {
+  handlePointerEnter = (event) => {
+    if (!this.shell) return;
+
     this.shell.classList.add('active');
     this.shell.classList.add('entering');
     if (this.enterTimer) window.clearTimeout(this.enterTimer);
@@ -151,11 +163,13 @@ class ProfileCardController {
       this.shell.classList.remove('entering');
     }, ANIMATION_CONFIG.ENTER_TRANSITION_MS);
 
-    const { x, y } = this.getOffsets(evt);
+    const { x, y } = this.getOffsets(event, this.shell);
     this.setTarget(x, y);
-  }
+  };
 
   handlePointerLeave = () => {
+    if (!this.shell) return;
+
     this.toCenter();
 
     const checkSettle = () => {
@@ -169,9 +183,11 @@ class ProfileCardController {
     };
     if (this.leaveRaf) cancelAnimationFrame(this.leaveRaf);
     this.leaveRaf = requestAnimationFrame(checkSettle);
-  }
+  };
 
   handleDeviceOrientation = (event) => {
+    if (!this.shell) return;
+
     const { beta, gamma } = event;
     if (beta == null || gamma == null) return;
 
@@ -185,7 +201,7 @@ class ProfileCardController {
     );
 
     this.setTarget(x, y);
-  }
+  };
 
   handleClick = () => {
     if (!this.options.enableMobileTilt || location.protocol !== 'https:') return;
@@ -202,24 +218,22 @@ class ProfileCardController {
     } else {
       window.addEventListener('deviceorientation', this.handleDeviceOrientation);
     }
-  }
+  };
 
   init() {
     if (!this.options.enableTilt) return;
 
-    // Events
     this.shell.addEventListener('pointerenter', this.handlePointerEnter);
     this.shell.addEventListener('pointermove', this.handlePointerMove);
     this.shell.addEventListener('pointerleave', this.handlePointerLeave);
-    
-    // Touch support for mobile
-    this.shell.addEventListener('touchstart', this.handlePointerEnter, {passive: true});
-    this.shell.addEventListener('touchmove', this.handlePointerMove, {passive: true});
+
+    // Touch support for mobile devices
+    this.shell.addEventListener('touchstart', this.handlePointerEnter, { passive: true });
+    this.shell.addEventListener('touchmove', this.handlePointerMove, { passive: true });
     this.shell.addEventListener('touchend', this.handlePointerLeave);
-    
+
     this.shell.addEventListener('click', this.handleClick);
 
-    // Initial animation
     const initialX = (this.shell.clientWidth || 0) - ANIMATION_CONFIG.INITIAL_X_OFFSET;
     const initialY = ANIMATION_CONFIG.INITIAL_Y_OFFSET;
     this.setImmediate(initialX, initialY);
@@ -234,21 +248,21 @@ document.addEventListener('DOMContentLoaded', () => {
   pcWrappers.forEach(wrap => {
     new ProfileCardController(wrap);
   });
-  
+
   // Handle contact button click in vanilla JS
   const contactBtn = document.querySelector('.pc-contact-btn');
   if (contactBtn) {
-      contactBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const targetSection = document.getElementById('contact');
-          if (targetSection) {
-              const offset = 80;
-              const targetPosition = targetSection.offsetTop - offset;
-              window.scrollTo({
-                  top: targetPosition,
-                  behavior: 'smooth'
-              });
-          }
-      });
+    contactBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetSection = document.getElementById('contact');
+      if (targetSection) {
+        const offset = 80;
+        const targetPosition = targetSection.offsetTop - offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
   }
 });
