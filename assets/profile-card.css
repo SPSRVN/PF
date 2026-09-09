@@ -34,7 +34,7 @@
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: none;
+  touch-action: pan-y;
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
@@ -79,14 +79,38 @@
   overflow: hidden;
 }
 
-.pc-card:hover,
-.pc-card.active {
-  transition: none;
-  transform: translateZ(0) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
+@media (hover: hover) and (pointer: fine) {
+  .pc-card:hover,
+  .pc-card.active {
+    transition: none;
+    transform: translateZ(0) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
+  }
+
+  .pc-card-shell.entering .pc-card {
+    transition: transform 180ms ease-out;
+  }
 }
 
-.pc-card-shell.entering .pc-card {
-  transition: transform 180ms ease-out;
+@media (hover: none), (pointer: coarse), (max-width: 768px) {
+  .pc-card-wrapper {
+    touch-action: pan-y !important;
+  }
+
+  .pc-card,
+  .pc-card:hover,
+  .pc-card.active,
+  .pc-card-shell.entering .pc-card {
+    transform: translateZ(0) !important;
+    transition: none !important;
+  }
+
+  .pc-behind {
+    opacity: 0.5 !important;
+  }
+
+  .pc-shine {
+    animation-play-state: running !important;
+  }
 }
 
 .pc-card-shell {

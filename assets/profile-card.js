@@ -223,14 +223,21 @@ class ProfileCardController {
   init() {
     if (!this.options.enableTilt) return;
 
-    this.shell.addEventListener('pointerenter', this.handlePointerEnter);
-    this.shell.addEventListener('pointermove', this.handlePointerMove);
-    this.shell.addEventListener('pointerleave', this.handlePointerLeave);
+    // Desktop pointer listeners (strictly ignore touch pointer events to prevent flickering)
+    this.shell.addEventListener('pointerenter', (e) => {
+      if (e.pointerType === 'touch' || window.innerWidth <= 768) return;
+      this.handlePointerEnter(e);
+    });
 
-    // Touch support for mobile devices
-    this.shell.addEventListener('touchstart', this.handlePointerEnter, { passive: true });
-    this.shell.addEventListener('touchmove', this.handlePointerMove, { passive: true });
-    this.shell.addEventListener('touchend', this.handlePointerLeave);
+    this.shell.addEventListener('pointermove', (e) => {
+      if (e.pointerType === 'touch' || window.innerWidth <= 768) return;
+      this.handlePointerMove(e);
+    });
+
+    this.shell.addEventListener('pointerleave', (e) => {
+      if (e.pointerType === 'touch' || window.innerWidth <= 768) return;
+      this.handlePointerLeave();
+    });
 
     this.shell.addEventListener('click', this.handleClick);
 
