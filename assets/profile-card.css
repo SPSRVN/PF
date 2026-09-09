@@ -10,7 +10,7 @@
   --background-x: 50%;
   --background-y: 50%;
   --grain: url("https://reactbits.dev/assets/demo/grain.webp");
-  --icon: url("https://reactbits.dev/assets/demo/iconpattern.png");
+  --icon: url("csharp-pattern.svg");
   --behind-gradient: none;
   --behind-glow-color: rgba(125, 190, 255, 0.67);
   --behind-glow-size: 50%;
@@ -75,6 +75,7 @@
   transform: translateZ(0) rotateX(0deg) rotateY(0deg);
   background: rgba(0, 0, 0, 0.9);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   overflow: hidden;
 }
 
@@ -110,12 +111,17 @@
 
 .pc-shine {
   mask-image: var(--icon);
+  -webkit-mask-image: var(--icon);
   mask-mode: luminance;
+  -webkit-mask-mode: luminance;
   mask-repeat: repeat;
-  mask-size: 150%;
+  -webkit-mask-repeat: repeat;
+  mask-size: 160px;
+  -webkit-mask-size: 160px;
   mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
+  -webkit-mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
   transition: filter 0.8s ease;
-  filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
+  filter: brightness(1.1) contrast(1.6) saturate(0.8) opacity(0.85);
   animation: holo-bg 18s linear infinite;
   animation-play-state: running;
   mix-blend-mode: color-dodge;
@@ -181,7 +187,7 @@
 
 .pc-card:hover .pc-shine,
 .pc-card.active .pc-shine {
-  filter: brightness(0.85) contrast(1.5) saturate(0.5);
+  filter: brightness(1.35) contrast(2.0) saturate(1.1) opacity(1);
   animation-play-state: paused;
 }
 

@@ -24,7 +24,7 @@ const PortfolioApp = () => {
                         if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
                   }}
                   behindGlowColor="hsla(14, 100%, 70%, 0.6)"
-                  iconUrl=""
+                  iconUrl="/assets/csharp-pattern.svg"
                   behindGlowEnabled
                   innerGradient="linear-gradient(145deg,hsla(14, 40%, 45%, 0.55) 0%,hsla(179, 60%, 70%, 0.27) 100%)"
                 />
