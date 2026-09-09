@@ -143,7 +143,8 @@
         const cardGroup = new THREE.Group();
         scene.add(cardGroup);
 
-        function setupCardModel(gltf) {
+        const gltfLoader = new THREE.GLTFLoader();
+        gltfLoader.load('assets/card.glb', (gltf) => {
             const model = gltf.scene;
             
             model.traverse((child) => {
@@ -151,120 +152,35 @@
                     if (child.name === 'card' || (child.material && child.material.name === 'base')) {
                         child.material = new THREE.MeshLambertMaterial({
                             map: cardAtlasTex,
-                            reflectivity: 0.2,
-                            side: THREE.DoubleSide
+                            reflectivity: 0.2
                         });
                     } else if (child.name === 'clip' || child.name === 'clamp' || (child.material && child.material.name === 'metal')) {
                         child.material = new THREE.MeshStandardMaterial({
                             color: 0xd5dfea,
                             metalness: 0.95,
-                            roughness: 0.25,
-                            side: THREE.DoubleSide
+                            roughness: 0.25
                         });
                     }
                 }
             });
 
-            model.scale.set(2.0, 2.0, 2.0);
+            model.scale.set(2.35, 2.35, 2.35);
             
             // Center X & Z
             const tempBox = new THREE.Box3().setFromObject(model);
             const center = new THREE.Vector3();
             tempBox.getCenter(center);
             
-            model.position.set(-center.x, -0.65, -center.z);
+            model.position.set(-center.x, -1.2, -center.z);
             cardGroup.add(model);
 
             hookLocalY = 1.48;
 
             const loadingOverlay = container.querySelector('.lanyard-loading');
-            if (loadingOverlay) {
-                loadingOverlay.style.opacity = '0';
-                setTimeout(() => { try { loadingOverlay.remove(); } catch (e) {} }, 400);
-            }
-        }
-
-        function buildProceduralCard() {
-            const pGroup = new THREE.Group();
-            
-            // Main Card Badge
-            const cardGeom = new THREE.BoxGeometry(2.35, 3.45, 0.05);
-            const cardMat = new THREE.MeshLambertMaterial({
-                map: cardAtlasTex,
-                reflectivity: 0.2
-            });
-            const cardMesh = new THREE.Mesh(cardGeom, cardMat);
-            pGroup.add(cardMesh);
-
-            // Metallic Top Clamp
-            const clampGeom = new THREE.BoxGeometry(0.75, 0.35, 0.12);
-            const metalMat = new THREE.MeshStandardMaterial({
-                color: 0xd5dfea,
-                metalness: 0.95,
-                roughness: 0.25
-            });
-            const clampMesh = new THREE.Mesh(clampGeom, metalMat);
-            clampMesh.position.set(0, 1.82, 0);
-            pGroup.add(clampMesh);
-
-            // Metal Ring Loop
-            const ringGeom = new THREE.TorusGeometry(0.2, 0.045, 10, 24);
-            const ringMesh = new THREE.Mesh(ringGeom, metalMat);
-            ringMesh.position.set(0, 2.05, 0);
-            pGroup.add(ringMesh);
-
-            pGroup.position.set(0, -0.6, 0);
-            cardGroup.add(pGroup);
-            hookLocalY = 1.48;
-
-            const loadingOverlay = container.querySelector('.lanyard-loading');
-            if (loadingOverlay) {
-                loadingOverlay.style.opacity = '0';
-                setTimeout(() => { try { loadingOverlay.remove(); } catch (e) {} }, 400);
-            }
-        }
-
-        function base64ToArrayBuffer(base64) {
-            const binary_string = window.atob(base64);
-            const len = binary_string.length;
-            const bytes = new Uint8Array(len);
-            for (let i = 0; i < len; i++) {
-                bytes[i] = binary_string.charCodeAt(i);
-            }
-            return bytes.buffer;
-        }
-
-        const gltfLoader = new THREE.GLTFLoader();
-
-        function loadCardModel() {
-            if (window.CARD_GLB_BASE64) {
-                try {
-                    const arrayBuf = base64ToArrayBuffer(window.CARD_GLB_BASE64);
-                    gltfLoader.parse(arrayBuf, '', (gltf) => {
-                        setupCardModel(gltf);
-                    }, (err) => {
-                        console.warn('Fallback to procedural card on parse error:', err);
-                        buildProceduralCard();
-                    });
-                    return;
-                } catch (e) {
-                    console.warn('Error parsing base64 glb:', e);
-                }
-            }
-
-            if (window.location.protocol !== 'file:') {
-                gltfLoader.load('assets/card.glb', (gltf) => {
-                    setupCardModel(gltf);
-                }, undefined, (err) => {
-                    console.warn('GLTFLoader load failed, fallback to procedural card:', err);
-                    buildProceduralCard();
-                });
-            } else {
-                buildProceduralCard();
-            }
-        }
-
-        loadCardModel();
+            if (loadingOverlay) loadingOverlay.style.opacity = '0';
+        }, undefined, (err) => {
+            console.error('Error loading card.glb for ' + config.containerId, err);
+        });
 
         function getHookWorldPos() {
             return new THREE.Vector3(0, hookLocalY, 0).applyEuler(cardState.rot).add(cardState.pos);
@@ -391,43 +307,9 @@
         let lastTime = performance.now();
         let prevBoxLeft = null;
         let prevBoxTop = null;
-        let isVisible = true;
-        let animRaf = null;
-
-        function startLoop() {
-            if (!isVisible) return;
-            if (animRaf) return;
-            lastTime = performance.now();
-            animRaf = requestAnimationFrame(animate);
-        }
-
-        function stopLoop() {
-            if (animRaf) {
-                cancelAnimationFrame(animRaf);
-                animRaf = null;
-            }
-        }
-
-        if ('IntersectionObserver' in window) {
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    isVisible = entry.isIntersecting;
-                    if (isVisible) {
-                        startLoop();
-                    } else {
-                        stopLoop();
-                    }
-                });
-            }, { rootMargin: '150px 0px 150px 0px' });
-            io.observe(container);
-        }
 
         function animate() {
-            if (!isVisible) {
-                animRaf = null;
-                return;
-            }
-            animRaf = requestAnimationFrame(animate);
+            requestAnimationFrame(animate);
 
             const now = performance.now();
             const dt = Math.min((now - lastTime) / 1000, 0.033);
