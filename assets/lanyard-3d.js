@@ -183,7 +183,7 @@
         });
 
         function getHookWorldPos() {
-            return new THREE.Vector3(0, hookLocalY, 0).applyEuler(cardState.rot).add(cardState.pos);
+            return new THREE.Vector3(0, hookLocalY, 0).applyEuler(cardGroup.rotation).add(cardState.pos);
         }
 
         // Pointer / Dragging interaction
@@ -450,7 +450,6 @@
             // 4. Update 3D Card Transform with Pendulum + Inertial Tilt
             cardGroup.position.copy(cardState.pos);
 
-            const hookPosFinal = getHookWorldPos();
             const swingDir = cardState.pos.clone().sub(joints[numSegments - 1].pos).normalize();
             if (!cardState.dragged) {
                 const pendulumAngleZ = -Math.asin(THREE.MathUtils.clamp(swingDir.x, -0.9, 0.9)) * 0.6;
@@ -461,19 +460,24 @@
                 cardGroup.rotation.copy(cardState.rot);
             }
 
+            // EXACT World Position of the Top Metal Hook Ring (Guarantees zero gap / zero misalignment)
+            const actualHookPos = new THREE.Vector3(0, hookLocalY, 0)
+                .applyEuler(cardGroup.rotation)
+                .add(cardGroup.position);
+
             // 5. Update Ribbon Mesh Geometry along Spline
             curvePoints[0].copy(fixedPos);
             for (let i = 1; i < numSegments; i++) {
                 curvePoints[i].copy(joints[i].pos);
             }
-            curvePoints[numSegments].copy(hookPosFinal);
+            curvePoints[numSegments].copy(actualHookPos);
 
             const splinePoints = spline.getPoints(ribbonSegments);
             const posAttr = ribbonGeom.attributes.position;
             const uvAttr = ribbonGeom.attributes.uv;
 
             const camPos = camera.position;
-            const halfW = ribbonWidth * 0.5;
+            const baseHalfW = ribbonWidth * 0.5;
 
             for (let i = 0; i <= ribbonSegments; i++) {
                 const pt = splinePoints[i];
@@ -492,11 +496,14 @@
                 const normal = new THREE.Vector3().crossVectors(tangent, toCam).normalize();
                 if (normal.lengthSq() < 0.001) normal.set(1, 0, 0);
 
+                // Subtle taper as strap connects firmly into metal ring
+                const currentHalfW = baseHalfW * (1.0 - t * 0.18);
+
                 const vIndex = i * 2;
-                posAttr.setXYZ(vIndex, pt.x - normal.x * halfW, pt.y - normal.y * halfW, pt.z - normal.z * halfW);
+                posAttr.setXYZ(vIndex, pt.x - normal.x * currentHalfW, pt.y - normal.y * currentHalfW, pt.z - normal.z * currentHalfW);
                 uvAttr.setXY(vIndex, (1.0 - t), 0);
 
-                posAttr.setXYZ(vIndex + 1, pt.x + normal.x * halfW, pt.y + normal.y * halfW, pt.z + normal.z * halfW);
+                posAttr.setXYZ(vIndex + 1, pt.x + normal.x * currentHalfW, pt.y + normal.y * currentHalfW, pt.z + normal.z * currentHalfW);
                 uvAttr.setXY(vIndex + 1, (1.0 - t), 1);
             }
 
