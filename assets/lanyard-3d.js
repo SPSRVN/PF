@@ -305,6 +305,8 @@
         const spline = new THREE.CatmullRomCurve3(curvePoints, false, 'chordal');
 
         let lastTime = performance.now();
+        let prevBoxLeft = null;
+        let prevBoxTop = null;
 
         function animate() {
             requestAnimationFrame(animate);
@@ -312,6 +314,37 @@
             const now = performance.now();
             const dt = Math.min((now - lastTime) / 1000, 0.033);
             lastTime = now;
+
+            // 0. Box Motion Inertia Physics (Left / Right sliding during scroll docking & window movement)
+            const rect = container.getBoundingClientRect();
+            if (prevBoxLeft !== null) {
+                const dX = rect.left - prevBoxLeft;
+                const dY = rect.top - prevBoxTop;
+
+                if (!cardState.dragged && (Math.abs(dX) > 0.04 || Math.abs(dY) > 0.04)) {
+                    // Moving left (dX < 0) pushes card/rope right (+X); moving right (dX > 0) pushes left (-X)
+                    const inertiaStrengthX = THREE.MathUtils.clamp(-dX * 0.0075, -0.28, 0.28);
+                    const inertiaStrengthY = THREE.MathUtils.clamp(-dY * 0.0012, -0.035, 0.035);
+
+                    // Displace card position in direction of horizontal inertia
+                    cardState.pos.x += inertiaStrengthX * 0.75;
+                    cardState.pos.y += inertiaStrengthY * 0.1;
+
+                    // Rotational roll & yaw tilt velocity impulses
+                    cardState.rotVel.z += inertiaStrengthX * 45.0;
+                    cardState.rotVel.y += inertiaStrengthX * 20.0;
+                    cardState.rotVel.x += (-inertiaStrengthY * 8.0);
+
+                    // Displace rope joints with gradient weight so ribbon bends naturally
+                    for (let i = 1; i < numSegments; i++) {
+                        const jointWeight = (i / numSegments);
+                        joints[i].pos.x += inertiaStrengthX * 0.65 * jointWeight;
+                        joints[i].pos.y += inertiaStrengthY * 0.08 * jointWeight;
+                    }
+                }
+            }
+            prevBoxLeft = rect.left;
+            prevBoxTop = rect.top;
 
             // 1. Update Card Position from Drag or Physics
             if (cardState.dragged) {
@@ -331,7 +364,7 @@
                 cardState.rot.z += cardState.rotVel.z * dt;
 
                 cardState.rotVel.x += (-cardState.rot.x * 7.5) * dt;
-                cardState.rotVel.y += (-cardState.rot.y * 1.8) * dt;
+                cardState.rotVel.y += (-cardState.rot.y * 2.2) * dt;
                 cardState.rotVel.z += (-cardState.rot.z * 10.0) * dt;
 
                 cardState.rotVel.multiplyScalar(angularDamping);
@@ -380,14 +413,18 @@
                 }
             }
 
-            // 4. Update 3D Card Transform
+            // 4. Update 3D Card Transform with Pendulum + Inertial Tilt
             cardGroup.position.copy(cardState.pos);
-            cardGroup.rotation.copy(cardState.rot);
 
             const hookPosFinal = getHookWorldPos();
             const swingDir = cardState.pos.clone().sub(joints[numSegments - 1].pos).normalize();
             if (!cardState.dragged) {
-                cardGroup.rotation.z = -Math.asin(THREE.MathUtils.clamp(swingDir.x, -0.9, 0.9)) * 0.6;
+                const pendulumAngleZ = -Math.asin(THREE.MathUtils.clamp(swingDir.x, -0.9, 0.9)) * 0.6;
+                cardGroup.rotation.z = pendulumAngleZ + cardState.rot.z * 0.65;
+                cardGroup.rotation.y = cardState.rot.y;
+                cardGroup.rotation.x = cardState.rot.x;
+            } else {
+                cardGroup.rotation.copy(cardState.rot);
             }
 
             // 5. Update Ribbon Mesh Geometry along Spline
@@ -434,6 +471,25 @@
             ribbonGeom.computeVertexNormals();
 
             renderer.render(scene, camera);
+        }
+
+        // Handle dynamic container resizing during scroll docking & window resizes
+        function handleContainerResize() {
+            const w = container.clientWidth || 340;
+            const h = container.clientHeight || 480;
+            if (w < 20 || h < 20) return;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+            fixedPos.set(0, getCeilingAnchorY(), 0);
+        }
+
+        window.addEventListener('resize', handleContainerResize);
+        if (window.ResizeObserver) {
+            const ro = new ResizeObserver(() => {
+                handleContainerResize();
+            });
+            ro.observe(container);
         }
 
         animate();

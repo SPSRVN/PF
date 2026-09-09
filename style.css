@@ -1020,17 +1020,26 @@ img {
 
 .timeline-split-container {
     display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: var(--spacing-xl);
+    grid-template-columns: 1fr 0px;
+    gap: 0px;
     align-items: stretch;
     width: 100%;
+    transition: grid-template-columns 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                gap 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-split-container.is-docked {
+    grid-template-columns: 1fr 340px;
+    gap: var(--spacing-xl);
 }
 
 .timeline-exp-left-card {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .timeline-lanyard-card {
@@ -1046,12 +1055,28 @@ img {
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), inset 0 0 25px rgba(0, 245, 255, 0.03);
     overflow: hidden;
     padding: 0;
-    transition: transform var(--transition-normal), border-color var(--transition-normal);
+    width: 340px;
+    min-width: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(45px) scale(0.94);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.75s ease,
+                border-color var(--transition-normal);
+}
+
+.timeline-split-container.is-docked .timeline-lanyard-card {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0) scale(1);
 }
 
 .timeline-lanyard-card:hover {
     border-color: rgba(0, 245, 255, 0.3);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1);
 }
 
 .timeline-lanyard-card .lanyard-container-inline {
@@ -1066,7 +1091,32 @@ img {
 
 @media (max-width: 900px) {
     .timeline-split-container {
+        display: flex;
+        flex-direction: column;
         grid-template-columns: 1fr;
+        gap: 0px;
+        transition: gap 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .timeline-split-container.is-docked {
+        gap: var(--spacing-md);
+    }
+    .timeline-lanyard-card {
+        width: 100% !important;
+        max-height: 0px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(35px) scale(0.95);
+        transition: max-height 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.7s ease,
+                    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.7s ease;
+    }
+    .timeline-split-container.is-docked .timeline-lanyard-card {
+        max-height: 480px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
     }
     .timeline-lanyard-card .lanyard-container-inline {
         height: 400px !important;
@@ -1755,11 +1805,6 @@ img {
    ======================================== */
 
 @media (max-width: 900px) {
-    .timeline-split-container {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-
     .timeline-lanyard-card .lanyard-container-inline {
         height: 380px !important;
         min-height: 380px !important;
@@ -1972,11 +2017,6 @@ img {
         top: 10px;
         width: 18px;
         height: 18px;
-    }
-
-    .timeline-split-container {
-        grid-template-columns: 1fr;
-        gap: 16px;
     }
 
     .timeline-content {

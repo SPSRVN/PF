@@ -531,6 +531,46 @@ function initCustomCursor() {
 }
 
 // ========================================
+// EXPERIENCE SCROLL DOCKING (DIGIFOX & MMW ID CARDS)
+// ========================================
+
+function initExperienceScrollDock() {
+    const splitContainers = document.querySelectorAll('.timeline-split-container');
+    if (!splitContainers.length) return;
+
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        splitContainers.forEach(container => {
+            ScrollTrigger.create({
+                trigger: container,
+                start: "top 58%", // As Digifox arrives near the center of the screen
+                end: "bottom 15%",
+                onEnter: () => container.classList.add('is-docked'),
+                onLeaveBack: () => container.classList.remove('is-docked'),
+            });
+        });
+    } else {
+        // Observer fallback
+        function checkScroll() {
+            const viewportH = window.innerHeight;
+            splitContainers.forEach(container => {
+                const rect = container.getBoundingClientRect();
+                if (rect.top <= viewportH * 0.58 && rect.bottom >= viewportH * 0.15) {
+                    container.classList.add('is-docked');
+                } else if (rect.top > viewportH * 0.62) {
+                    container.classList.remove('is-docked');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll, { passive: true });
+        window.addEventListener('resize', checkScroll, { passive: true });
+        checkScroll();
+    }
+}
+
+// ========================================
 // INTERSECTION OBSERVER FOR PERFORMANCE
 // ========================================
 
@@ -629,6 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initProjectModals();
     initProjectReveal();
+    initExperienceScrollDock();
     // initLazyEffects();
 
     // Custom cursor (XR Style)
