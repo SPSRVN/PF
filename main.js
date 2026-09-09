@@ -535,6 +535,9 @@ function initCustomCursor() {
 // ========================================
 
 function initExperienceScrollDock() {
+    // Keep ID card static on mobile (width <= 900px)
+    if (window.innerWidth <= 900) return;
+
     const splitContainers = document.querySelectorAll('.timeline-split-container');
     if (!splitContainers.length) return;
 
@@ -542,11 +545,10 @@ function initExperienceScrollDock() {
         gsap.registerPlugin(ScrollTrigger);
 
         splitContainers.forEach(container => {
-            const parentCard = container.querySelector('.timeline-exp-left-card') || container;
             ScrollTrigger.create({
-                trigger: parentCard,
-                start: "top 78%", // When company box arrives in view
-                end: "bottom 15%", // When scrolling past the box
+                trigger: container,
+                start: "top 65%",
+                end: "bottom 18%",
                 onEnter: () => container.classList.add('is-docked'),
                 onLeaveBack: () => container.classList.remove('is-docked'),
                 onLeave: () => container.classList.remove('is-docked'),
@@ -554,13 +556,13 @@ function initExperienceScrollDock() {
             });
         });
     } else {
-        // Fallback for scroll listener
+        // Fallback for scroll listener on desktop
         function checkScroll() {
+            if (window.innerWidth <= 900) return;
             const viewportH = window.innerHeight;
             splitContainers.forEach(container => {
-                const parentCard = container.querySelector('.timeline-exp-left-card') || container;
-                const rect = parentCard.getBoundingClientRect();
-                if (rect.top <= viewportH * 0.78 && rect.bottom >= viewportH * 0.15) {
+                const rect = container.getBoundingClientRect();
+                if (rect.top <= viewportH * 0.65 && rect.bottom >= viewportH * 0.18) {
                     container.classList.add('is-docked');
                 } else {
                     container.classList.remove('is-docked');
