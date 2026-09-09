@@ -18,7 +18,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="loader-preview.css?v=1">
     <link rel="stylesheet" href="assets/profile-card.css?v=1">
-    <link rel="stylesheet" href="assets/pixel-card.css?v=25">
+    <link rel="stylesheet" href="assets/pixel-card.css?v=26">
+    <link rel="stylesheet" href="assets/glass-surface.css?v=26">
 </head>
 
 <body>
@@ -65,25 +66,31 @@
 
         <!-- Navigation -->
         <nav id="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <span class="logo-text"><span id="logo-chars">SP</span><span class="accent">_</span></span>
-                </div>
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#training" class="nav-link">Training</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="assets/resume.pdf" class="nav-btn-resume"
-                            download="Saravana_Prakash_Resume.pdf">Resume</a></li>
-                </ul>
-                <div class="nav-toggle" id="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div class="nav-container glass-surface" data-border-radius="100" data-border-width="0.12"
+                data-brightness="50" data-opacity="0.93" data-blur="12" data-background-opacity="0.08"
+                data-saturation="1.6" data-distortion-scale="-220" data-red-offset="0" data-green-offset="12"
+                data-blue-offset="24">
+                <svg class="glass-surface__filter"></svg>
+                <div class="glass-surface__content">
+                    <div class="nav-logo">
+                        <span class="logo-text"><span id="logo-chars">SP</span><span class="accent">_</span></span>
+                    </div>
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#experience" class="nav-link">Experience</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#training" class="nav-link">Training</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                        <li><a href="assets/resume.pdf" class="nav-btn-resume"
+                                download="Saravana_Prakash_Resume.pdf">Resume</a></li>
+                    </ul>
+                    <div class="nav-toggle" id="nav-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -126,7 +133,8 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <div class="pc-card-wrapper" style="--pc-icon: url('https://reactbits.dev/assets/demo/iconpattern.png'); --pc-grain: url('https://reactbits.dev/assets/demo/grain.webp');">
+                        <div class="pc-card-wrapper"
+                            style="--pc-icon: url('https://reactbits.dev/assets/demo/iconpattern.png'); --pc-grain: url('https://reactbits.dev/assets/demo/grain.webp');">
                             <div class="pc-behind"></div>
                             <div class="pc-card-shell">
                                 <section class="pc-card">
@@ -139,18 +147,22 @@
                                             </div>
                                         </div>
                                         <div class="pc-content pc-avatar-content">
-                                            <img class="avatar" src="assets/profile_authentic.png" alt="Saravana Prakash R avatar" loading="lazy" onerror="this.style.display='none'" />
+                                            <img class="avatar" src="assets/profile_authentic.png"
+                                                alt="Saravana Prakash R avatar" loading="lazy"
+                                                onerror="this.style.display='none'" />
                                             <div class="pc-user-info">
                                                 <div class="pc-user-details">
                                                     <div class="pc-mini-avatar">
-                                                        <img src="assets/profile_authentic.png" alt="Saravana Prakash R mini avatar" loading="lazy" />
+                                                        <img src="assets/profile_authentic.png"
+                                                            alt="Saravana Prakash R mini avatar" loading="lazy" />
                                                     </div>
                                                     <div class="pc-user-text">
                                                         <div class="pc-handle">@srvnsp</div>
                                                         <div class="pc-status">Online</div>
                                                     </div>
                                                 </div>
-                                                <button class="pc-contact-btn" type="button" aria-label="Contact Saravana Prakash R">
+                                                <button class="pc-contact-btn" type="button"
+                                                    aria-label="Contact Saravana Prakash R">
                                                     Contact Me
                                                 </button>
                                             </div>
@@ -231,7 +243,8 @@
                             <span class="timeline-date">JAN 2025 &ndash; SEP 2025</span>
                             <h3>Engineer - Immersive Tech</h3>
                             <h4 style="margin-bottom: 15px;">Digifox Studio</h4>
-                            <img src="assets/digifox_studio_logo.webp" alt="Digifox Studio Logo" style="position: absolute; top: 30px; right: 30px; width: 80px; height: 80px; border-radius: 12px; object-fit: contain; background: white; padding: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                            <img src="assets/digifox_studio_logo.webp" alt="Digifox Studio Logo"
+                                style="position: absolute; top: 30px; right: 30px; width: 80px; height: 80px; border-radius: 12px; object-fit: contain; background: white; padding: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
                             <ul>
                                 <li>Developed safety training module and vehicle simulator for industrial applications
                                 </li>
@@ -245,7 +258,8 @@
                             <span class="timeline-date">MAY 2022 &ndash; NOV 2024</span>
                             <h3>AR/VR Developer</h3>
                             <h4 style="margin-bottom: 15px;">Madras Mindworks</h4>
-                            <img src="assets/Madras%20Mindworks.webp" alt="Madras Mindworks Logo" style="position: absolute; top: 30px; right: 30px; width: 80px; height: 80px; border-radius: 12px; object-fit: contain; background: white; padding: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                            <img src="assets/Madras%20Mindworks.webp" alt="Madras Mindworks Logo"
+                                style="position: absolute; top: 30px; right: 30px; width: 80px; height: 80px; border-radius: 12px; object-fit: contain; background: white; padding: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
                             <ul>
                                 <li>Built multi-sensory AR/VR applications using Unity and Unreal Engine</li>
                                 <li>Worked with Oculus Quest, HTC Vive, and Vision Pro devices</li>
@@ -259,7 +273,8 @@
                             <span class="timeline-date">JUN 2021 &ndash; MAY 2022</span>
                             <h3>Web Developer</h3>
                             <h4 style="margin-bottom: 15px;">Avon Solutions</h4>
-                            <img src="assets/Avon%20Solutions.webp" alt="Avon Solutions Logo" style="position: absolute; top: 30px; right: 30px; width: 80px; height: 80px; border-radius: 12px; object-fit: contain; background: white; padding: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                            <img src="assets/Avon%20Solutions.webp" alt="Avon Solutions Logo"
+                                style="position: absolute; top: 30px; right: 30px; width: 80px; height: 80px; border-radius: 12px; object-fit: contain; background: white; padding: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
                             <ul>
                                 <li>Maintained websites, ensuring responsiveness and efficiency</li>
                                 <li>Collaborated with cross-functional teams to enhance UX and optimize performance</li>
@@ -284,8 +299,10 @@
                         </div>
                         <div class="project-content">
                             <h3>VR Vestibular Rehabilitation</h3>
-                            <p>Developed a high-fidelity VR vestibular rehabilitation system simulating equine-assisted therapy.
-                                Implemented 5Hz real-time patient biomechanical tracking (Center of Mass &amp; head posture) with WebSocket
+                            <p>Developed a high-fidelity VR vestibular rehabilitation system simulating equine-assisted
+                                therapy.
+                                Implemented 5Hz real-time patient biomechanical tracking (Center of Mass &amp; head
+                                posture) with WebSocket
                                 telemetry streaming and REST API session logging.</p>
                             <div class="project-tags">
                                 <span class="tag">Unity</span>
@@ -300,12 +317,16 @@
                     <!-- Project - 3D Product Configurator -->
                     <div class="project-card glass" data-project="product-configurator">
                         <div class="project-image">
-                            <img src="assets/projects/WEBP/product_configurator.png" alt="3D Product Configurator with AI Reviewer"
+                            <img src="assets/projects/WEBP/product_configurator.png"
+                                alt="3D Product Configurator with AI Reviewer"
                                 style="width: 100%; height: 100%; object-fit: cover;" />
                         </div>
                         <div class="project-content">
                             <h3>3D Product Configurator with AI Reviewer</h3>
-                            <p>Engineered an interactive 3D product configurator in Unity. Built a smart submesh texture routing engine to prevent dual-mesh wrapping, integrated real-time upload/download progress sliders, and designed an AI sentiment analysis panel powered by Gemini API featuring cubic-eased score countups and selectable custom color animation sweeps.</p>
+                            <p>Engineered an interactive 3D product configurator in Unity. Built a smart submesh texture
+                                routing engine to prevent dual-mesh wrapping, integrated real-time upload/download
+                                progress sliders, and designed an AI sentiment analysis panel powered by Gemini API
+                                featuring cubic-eased score countups and selectable custom color animation sweeps.</p>
                             <div class="project-tags">
                                 <span class="tag">Unity</span>
                                 <span class="tag">WebGL</span>
@@ -533,7 +554,9 @@
                         </div>
                         <div class="project-content">
                             <h3>Eye-Tracking Product Analytics (v3.0)</h3>
-                            <p>Engineered a non-destructive 3D Ghost Mesh heatmap projection overlay for package design analysis. Developed runtime cylindrical/planar UV mapping, dual-product A/B gaze comparison, and multi-mode 2D/3D tracking with binary GLB/GLTF exporter integration.</p>
+                            <p>Engineered a non-destructive 3D Ghost Mesh heatmap projection overlay for package design
+                                analysis. Developed runtime cylindrical/planar UV mapping, dual-product A/B gaze
+                                comparison, and multi-mode 2D/3D tracking with binary GLB/GLTF exporter integration.</p>
                             <div class="project-tags">
                                 <span class="tag">Unity</span>
                                 <span class="tag">Eye Tracking</span>
@@ -545,9 +568,10 @@
                     </div>
 
                 </div>
-                
+
                 <div class="view-more-container" style="text-align: center; margin-top: 80px; padding-bottom: 20px;">
-                    <button id="view-more-projects-btn" class="nav-btn-resume" style="display: inline-flex; cursor: pointer;">
+                    <button id="view-more-projects-btn" class="nav-btn-resume"
+                        style="display: inline-flex; cursor: pointer;">
                         View All Projects
                     </button>
                 </div>
@@ -696,11 +720,13 @@
         <!-- Disclaimer Section -->
         <section id="disclaimer" class="disclaimer">
             <div class="container">
-                <div class="disclaimer-card glass pixel-card" data-variant="cyber" data-gap="8" data-speed="35" data-colors="#00f2ff,#38bdf8,#0ea5e9,#0284c7,#ffffff">
+                <div class="disclaimer-card glass pixel-card" data-variant="cyber" data-gap="8" data-speed="35"
+                    data-colors="#00f2ff,#38bdf8,#0ea5e9,#0284c7,#ffffff">
                     <canvas class="pixel-canvas"></canvas>
                     <div class="disclaimer-header">
                         <div class="disclaimer-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <line x1="12" y1="8" x2="12" y2="12"></line>
                                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
@@ -709,9 +735,12 @@
                         <h3 class="disclaimer-heading">Disclaimer &amp; Professional Notice</h3>
                     </div>
                     <p class="disclaimer-text">
-                        The projects and case studies showcased on this portfolio website are for illustrative purposes only. 
-                        Some work is protected under Non-Disclosure Agreements (NDAs), and any proprietary information has been excluded or anonymized. 
-                        All prototypes, applications, and technical demonstrations reflect my role, skills, and experience as an XR Developer and are presented solely to showcase my development capabilities. 
+                        The projects and case studies showcased on this portfolio website are for illustrative purposes
+                        only.
+                        Some work is protected under Non-Disclosure Agreements (NDAs), and any proprietary information
+                        has been excluded or anonymized.
+                        All prototypes, applications, and technical demonstrations reflect my role, skills, and
+                        experience as an XR Developer and are presented solely to showcase my development capabilities.
                         These materials are not intended for commercial use or redistribution.
                     </p>
                 </div>
@@ -733,7 +762,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="assets/profile-card.js?v=1"></script>
-    <script src="assets/pixel-card.js?v=25"></script>
+    <script src="assets/pixel-card.js?v=26"></script>
+    <script src="assets/glass-surface.js?v=26"></script>
     <script src="main.js?v=7"></script>
     <script src="loader-preview.js?v=1"></script>
 </body>

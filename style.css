@@ -5,10 +5,14 @@
 :root {
     /* Pure Liquid Refractive Palette */
     --color-bg: #010206;
-    --color-surface: rgba(255, 255, 255, 0.08); /* Increased from 0.04 */
-    --color-liquid-tint: rgba(255, 255, 255, 0.12); /* Increased from 0.08 */
-    --color-glass-border: rgba(255, 255, 255, 0.2); /* Increased from 0.12 */
-    --color-liquid-rim: rgba(255, 255, 255, 0.5); /* Increased from 0.4 */
+    --color-surface: rgba(255, 255, 255, 0.08);
+    /* Increased from 0.04 */
+    --color-liquid-tint: rgba(255, 255, 255, 0.12);
+    /* Increased from 0.08 */
+    --color-glass-border: rgba(255, 255, 255, 0.2);
+    /* Increased from 0.12 */
+    --color-liquid-rim: rgba(255, 255, 255, 0.5);
+    /* Increased from 0.4 */
     --color-liquid-shine: rgba(0, 245, 255, 0.2);
 
     /* visionOS Accents */
@@ -135,7 +139,7 @@ body {
     z-index: 99999;
     transform: translate(-50%, -50%);
     box-shadow:
-        0 0 4px  2px #00f5ff,
+        0 0 4px 2px #00f5ff,
         0 0 14px 4px rgba(0, 245, 255, 0.55);
     transition: opacity 0.15s ease, box-shadow 0.2s ease;
 }
@@ -149,7 +153,7 @@ body {
     z-index: 99998;
     transform: translate(-50%, -50%);
     transition:
-        width  0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
         height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
         opacity 0.2s ease;
     animation: arc-reactor-breathe 2.5s ease-in-out infinite;
@@ -157,8 +161,10 @@ body {
 
 /* Outer ring + studs: slow continuous spin — view-box pins to SVG centre (30,30) */
 .arc-spin-group {
-    transform-box: view-box;     /* rotate around SVG viewport centre, not bounding box */
-    transform-origin: 50% 50%;  /* = exactly (30,30) in our 60×60 viewBox */
+    transform-box: view-box;
+    /* rotate around SVG viewport centre, not bounding box */
+    transform-origin: 50% 50%;
+    /* = exactly (30,30) in our 60×60 viewBox */
     animation: arc-ring-spin 8s linear infinite;
 }
 
@@ -171,20 +177,39 @@ body {
 
 /* Subtle whole-reactor glow breathe */
 @keyframes arc-reactor-breathe {
-    0%,  100% { filter: drop-shadow(0 0  6px rgba(0, 245, 255, 0.65)); }
-    50%        { filter: drop-shadow(0 0 18px rgba(0, 245, 255, 1.00)); }
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 6px rgba(0, 245, 255, 0.65));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 18px rgba(0, 245, 255, 1.00));
+    }
 }
 
 /* Outer ring spin */
 @keyframes arc-ring-spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Core brightness pulse */
 @keyframes arc-core-pulse-anim {
-    0%,  100% { opacity: 0.75; }
-    50%        { opacity: 1.00; }
+
+    0%,
+    100% {
+        opacity: 0.75;
+    }
+
+    50% {
+        opacity: 1.00;
+    }
 }
 
 /* ——— POWER-UP on interactive element hover ——— */
@@ -195,12 +220,13 @@ body {
 }
 
 .cursor-active .arc-spin-group {
-    animation-duration: 1.8s; /* Ring spins faster */
+    animation-duration: 1.8s;
+    /* Ring spins faster */
 }
 
 .cursor-active .arc-cursor-core {
     box-shadow:
-        0 0 8px  4px #00f5ff,
+        0 0 8px 4px #00f5ff,
         0 0 26px 8px rgba(0, 245, 255, 0.75);
 }
 
@@ -208,7 +234,7 @@ body {
 .arc-cursor-core.arc-clicking {
     transform: translate(-50%, -50%) scale(2.5);
     box-shadow:
-        0 0 18px 8px  #00f5ff,
+        0 0 18px 8px #00f5ff,
         0 0 40px 16px rgba(0, 245, 255, 0.8);
     transition: transform 0.08s ease, box-shadow 0.08s ease;
 }
@@ -348,7 +374,8 @@ img {
     inset: 0;
     z-index: -1;
     background: var(--color-surface);
-    backdrop-filter: blur(16px) saturate(160%); /* Reduced blur from 30px */
+    backdrop-filter: blur(16px) saturate(160%);
+    /* Reduced blur from 30px */
     -webkit-backdrop-filter: blur(16px) saturate(160%);
     border-radius: inherit;
     transition: background 0.6s ease;
@@ -390,34 +417,38 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 24px 0;
+    padding: 20px 0;
     z-index: var(--z-nav);
     background: transparent;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
 }
 
 #navbar.scrolled {
-    padding: 12px 0;
+    padding: 10px 0;
 }
 
 .nav-container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 18px 32px;
+    padding: 10px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 100px;
     transition: all 0.3s ease;
-    background: transparent;
+    background: rgba(6, 12, 28, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: saturate(160%) brightness(1.15);
+    -webkit-backdrop-filter: saturate(160%) brightness(1.15);
+    box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.6), 0 8px 32px 0 rgba(0, 0, 0, 0.25), 0 0 20px rgba(0, 242, 255, 0.1);
 }
 
 #navbar.scrolled .nav-container {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(6, 12, 28, 0.18);
+    backdrop-filter: saturate(170%) brightness(1.18);
+    -webkit-backdrop-filter: saturate(170%) brightness(1.18);
+    box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.7), 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 242, 255, 0.18);
+    border-color: rgba(0, 242, 255, 0.35);
 }
 
 .nav-logo {
@@ -455,10 +486,14 @@ img {
 }
 
 @keyframes blink {
-    0%, 49% {
+
+    0%,
+    49% {
         opacity: 1;
     }
-    50%, 100% {
+
+    50%,
+    100% {
         opacity: 0;
     }
 }
@@ -505,10 +540,10 @@ img {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
     backdrop-filter: blur(12px) saturate(150%);
     -webkit-backdrop-filter: blur(12px) saturate(150%);
-    box-shadow: 
-        0 4px 12px rgba(0,0,0,0.1), 
-        inset 0 1px 0 0 rgba(255,255,255,0.3), 
-        inset 0 -1px 0 0 rgba(255,255,255,0.05);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 0 rgba(255, 255, 255, 0.05);
 }
 
 .nav-btn-resume {
@@ -1044,7 +1079,7 @@ img {
     max-width: 100%;
     overflow: hidden;
     transition: grid-template-columns 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                gap 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        gap 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .timeline-split-container.is-docked {
@@ -1081,9 +1116,9 @@ img {
     pointer-events: none;
     transform: translateX(45px) scale(0.94);
     transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.75s ease,
-                border-color var(--transition-normal);
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.75s ease,
+        border-color var(--transition-normal);
 }
 
 .timeline-split-container.is-docked .timeline-lanyard-card {
@@ -1116,9 +1151,11 @@ img {
         gap: 0px;
         transition: gap 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .timeline-split-container.is-docked {
         gap: var(--spacing-md);
     }
+
     .timeline-lanyard-card {
         width: 100% !important;
         max-height: 0px;
@@ -1126,10 +1163,11 @@ img {
         visibility: hidden;
         transform: translateY(35px) scale(0.95);
         transition: max-height 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                    opacity 0.7s ease,
-                    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                    visibility 0.7s ease;
+            opacity 0.7s ease,
+            transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+            visibility 0.7s ease;
     }
+
     .timeline-split-container.is-docked .timeline-lanyard-card {
         max-height: 480px;
         opacity: 1;
@@ -1137,6 +1175,7 @@ img {
         pointer-events: auto;
         transform: translateY(0) scale(1);
     }
+
     .timeline-lanyard-card .lanyard-container-inline {
         height: 400px !important;
         min-height: 400px !important;
@@ -1176,7 +1215,9 @@ img {
 }
 
 @keyframes lanyard-spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .lanyard-hint {
@@ -1210,8 +1251,17 @@ img {
 }
 
 @keyframes pulse-lanyard-hint {
-    0%, 100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
-    50% { opacity: 1; transform: translateX(-50%) scale(1.03); }
+
+    0%,
+    100% {
+        opacity: 0.75;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.03);
+    }
 }
 
 .profile-frame {
@@ -1436,15 +1486,15 @@ img {
     padding: 6px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4),
-                0 0 18px rgba(0, 245, 255, 0.3);
+        0 0 18px rgba(0, 245, 255, 0.3);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.4s ease;
+        box-shadow 0.4s ease;
 }
 
 .timeline-content:hover .exp-logo-img {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5),
-                0 0 26px rgba(0, 245, 255, 0.5);
+        0 0 26px rgba(0, 245, 255, 0.5);
 }
 
 .timeline-date {
@@ -1854,7 +1904,7 @@ img {
         text-align: center;
         padding: var(--spacing-lg);
     }
-    
+
     .disclaimer-text {
         text-align: center;
     }
@@ -1897,7 +1947,7 @@ img {
     #navbar {
         padding: 8px 0 !important;
     }
-    
+
     #navbar.scrolled {
         padding: 6px 0 !important;
     }
@@ -1952,7 +2002,7 @@ img {
         color: white;
         border-radius: 12px;
     }
-    
+
     .nav-btn-resume {
         margin-left: 0 !important;
         margin-top: 8px;
@@ -1995,7 +2045,8 @@ img {
         display: none;
     }
 
-    .name-line-1, .name-line-2 {
+    .name-line-1,
+    .name-line-2 {
         text-shadow: 0 0 12px currentColor;
     }
 
@@ -2116,7 +2167,7 @@ img {
         margin-bottom: 12px;
     }
 
-    .timeline-content > img[style*="position: absolute"] {
+    .timeline-content>img[style*="position: absolute"] {
         width: 50px !important;
         height: 50px !important;
         top: 18px !important;
@@ -2367,11 +2418,18 @@ img {
    MOBILE PERFORMANCE — TOUCH DEVICES
    Kills heavy GPU effects that cause lag
    ======================================== */
-@media (pointer: coarse), (hover: none) {
+@media (pointer: coarse),
+(hover: none) {
 
     /* --- Restore default cursor (hidden on desktop) --- */
-    body { cursor: auto; }
-    .arc-cursor-core, .arc-cursor-reactor { display: none !important; }
+    body {
+        cursor: auto;
+    }
+
+    .arc-cursor-core,
+    .arc-cursor-reactor {
+        display: none !important;
+    }
 
     /* --- Disable ALL backdrop-filters (huge GPU cost on mobile) --- */
     .glass,
@@ -2448,6 +2506,7 @@ img {
     .skill-item:hover {
         transform: none !important;
     }
+
     .skill-item:hover .skill-icon svg {
         transform: none !important;
     }
@@ -2469,4 +2528,3 @@ img {
         transition: none !important;
     }
 }
-

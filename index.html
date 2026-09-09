@@ -26,16 +26,17 @@
     <meta property="og:image" content="favicon-512.png">
     <meta property="og:title" content="Saravana Prakash R | XR Developer">
     <meta property="og:description" content="XR Developer specializing in AR/VR, AI Integration and spatial computing.">
-    <link rel="stylesheet" href="style.css?v=25">
+    <link rel="stylesheet" href="style.css?v=26">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="loader.css?v=25">
-    <link rel="stylesheet" href="assets/profile-card.css?v=25">
-    <link rel="stylesheet" href="assets/star-border.css?v=25">
-    <link rel="stylesheet" href="assets/pixel-card.css?v=25">
+    <link rel="stylesheet" href="loader.css?v=26">
+    <link rel="stylesheet" href="assets/profile-card.css?v=26">
+    <link rel="stylesheet" href="assets/star-border.css?v=26">
+    <link rel="stylesheet" href="assets/pixel-card.css?v=26">
+    <link rel="stylesheet" href="assets/glass-surface.css?v=26">
 </head>
 
 <body>
@@ -100,60 +101,60 @@
         <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
             <defs>
                 <filter id="arc-gf" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="1.1" result="blur"/>
-                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    <feGaussianBlur stdDeviation="1.1" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
                 </filter>
                 <filter id="core-gf" x="-100%" y="-100%" width="300%" height="300%">
-                    <feGaussianBlur stdDeviation="2.8" result="blur"/>
-                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    <feGaussianBlur stdDeviation="2.8" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
                 </filter>
                 <radialGradient id="arc-core-grad" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%"   stop-color="white"   stop-opacity="1"/>
-                    <stop offset="40%"  stop-color="#c0ffff" stop-opacity="1"/>
-                    <stop offset="100%" stop-color="#00f5ff" stop-opacity="1"/>
+                    <stop offset="0%" stop-color="white" stop-opacity="1" />
+                    <stop offset="40%" stop-color="#c0ffff" stop-opacity="1" />
+                    <stop offset="100%" stop-color="#00f5ff" stop-opacity="1" />
                 </radialGradient>
             </defs>
 
             <!-- ① Outer ring: rotates. Studs exactly at arm-tip angles (-90°, 30°, 150°) -->
             <g class="arc-spin-group">
-                <circle cx="30" cy="30" r="27"
-                    fill="none" stroke="#00f5ff" stroke-width="1.8" filter="url(#arc-gf)"/>
+                <circle cx="30" cy="30" r="27" fill="none" stroke="#00f5ff" stroke-width="1.8" filter="url(#arc-gf)" />
                 <!-- Stud top    (-90°): (30, 30-27) = (30, 3) -->
-                <circle cx="30"    cy="3"    r="2.4" fill="#00f5ff" filter="url(#arc-gf)"/>
+                <circle cx="30" cy="3" r="2.4" fill="#00f5ff" filter="url(#arc-gf)" />
                 <!-- Stud BR     ( 30°): (30+23.38, 30+13.5) = (53.38, 43.5) -->
-                <circle cx="53.38" cy="43.5" r="2.4" fill="#00f5ff" filter="url(#arc-gf)"/>
+                <circle cx="53.38" cy="43.5" r="2.4" fill="#00f5ff" filter="url(#arc-gf)" />
                 <!-- Stud BL     (150°): (30-23.38, 43.5) = (6.62, 43.5) -->
-                <circle cx="6.62"  cy="43.5" r="2.4" fill="#00f5ff" filter="url(#arc-gf)"/>
+                <circle cx="6.62" cy="43.5" r="2.4" fill="#00f5ff" filter="url(#arc-gf)" />
             </g>
 
             <!-- ② Three Y-arm spokes: inner circle edge → outer ring, exact endpoints -->
             <!-- Arm top: (30,17) → (30,3) -->
-            <line x1="30"    y1="17"   x2="30"    y2="3"
-                stroke="#00f5ff" stroke-width="1.6" filter="url(#arc-gf)"/>
+            <line x1="30" y1="17" x2="30" y2="3" stroke="#00f5ff" stroke-width="1.6" filter="url(#arc-gf)" />
             <!-- Arm BR:  (41.26,36.5) → (53.38,43.5) -->
-            <line x1="41.26" y1="36.5" x2="53.38" y2="43.5"
-                stroke="#00f5ff" stroke-width="1.6" filter="url(#arc-gf)"/>
+            <line x1="41.26" y1="36.5" x2="53.38" y2="43.5" stroke="#00f5ff" stroke-width="1.6" filter="url(#arc-gf)" />
             <!-- Arm BL:  (18.74,36.5) → (6.62,43.5) -->
-            <line x1="18.74" y1="36.5" x2="6.62"  y2="43.5"
-                stroke="#00f5ff" stroke-width="1.6" filter="url(#arc-gf)"/>
+            <line x1="18.74" y1="36.5" x2="6.62" y2="43.5" stroke="#00f5ff" stroke-width="1.6" filter="url(#arc-gf)" />
 
             <!-- ③ Inner circle: perfectly centred -->
-            <circle cx="30" cy="30" r="13"
-                fill="rgba(0,10,28,0.93)" stroke="#00f5ff" stroke-width="1.5" filter="url(#arc-gf)"/>
+            <circle cx="30" cy="30" r="13" fill="rgba(0,10,28,0.93)" stroke="#00f5ff" stroke-width="1.5"
+                filter="url(#arc-gf)" />
 
             <!-- ④ Downward equilateral triangle, circumradius=12 (fits inside r=13 ring)
                   Top-L (210°): (30-12*0.866, 30-12*0.5) = (19.6, 24)
                   Top-R (-30°): (30+10.39,    24)         = (40.4, 24)
                   Bottom(90°):  (30,           30+12)      = (30,   42) -->
-            <polygon points="19.6,24 40.4,24 30,42"
-                fill="rgba(0,245,255,0.22)" stroke="#00f5ff" stroke-width="1.6"
-                filter="url(#arc-gf)"/>
+            <polygon points="19.6,24 40.4,24 30,42" fill="rgba(0,245,255,0.22)" stroke="#00f5ff" stroke-width="1.6"
+                filter="url(#arc-gf)" />
 
             <!-- ⑤ Core — bloom layer → gradient mid → white-hot centre -->
-            <circle cx="30" cy="30" r="5.5"
-                fill="#00f5ff" class="arc-core-pulse" filter="url(#core-gf)"/>
-            <circle cx="30" cy="30" r="3.6" fill="url(#arc-core-grad)"/>
-            <circle cx="30" cy="30" r="1.8" fill="white"/>
+            <circle cx="30" cy="30" r="5.5" fill="#00f5ff" class="arc-core-pulse" filter="url(#core-gf)" />
+            <circle cx="30" cy="30" r="3.6" fill="url(#arc-core-grad)" />
+            <circle cx="30" cy="30" r="1.8" fill="white" />
         </svg>
     </div>
 
@@ -165,25 +166,31 @@
 
         <!-- Navigation -->
         <nav id="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <span class="logo-text"><span id="logo-chars">SP</span><span class="accent">_</span></span>
-                </div>
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#training" class="nav-link">Training</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="assets/resume.pdf" class="nav-btn-resume"
-                            download="Saravana_Prakash_Resume.pdf">Resume</a></li>
-                </ul>
-                <div class="nav-toggle" id="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div class="nav-container glass-surface" data-border-radius="100" data-border-width="0.12"
+                data-brightness="50" data-opacity="0.93" data-blur="12" data-background-opacity="0.08"
+                data-saturation="1.6" data-distortion-scale="-220" data-red-offset="0" data-green-offset="12"
+                data-blue-offset="24">
+                <svg class="glass-surface__filter"></svg>
+                <div class="glass-surface__content">
+                    <div class="nav-logo">
+                        <span class="logo-text"><span id="logo-chars">SP</span><span class="accent">_</span></span>
+                    </div>
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#experience" class="nav-link">Experience</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#training" class="nav-link">Training</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                        <li><a href="assets/resume.pdf" class="nav-btn-resume"
+                                download="Saravana_Prakash_Resume.pdf">Resume</a></li>
+                    </ul>
+                    <div class="nav-toggle" id="nav-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -231,7 +238,8 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <div class="pc-card-wrapper" style="--grain: url('https://reactbits.dev/assets/demo/grain.webp'); --inner-gradient: linear-gradient(145deg, #60496e8c 0%, #71C4FF44 100%); --behind-glow-color: rgba(125, 190, 255, 0.67); --behind-glow-size: 50%;">
+                        <div class="pc-card-wrapper"
+                            style="--grain: url('https://reactbits.dev/assets/demo/grain.webp'); --inner-gradient: linear-gradient(145deg, #60496e8c 0%, #71C4FF44 100%); --behind-glow-color: rgba(125, 190, 255, 0.67); --behind-glow-size: 50%;">
                             <div class="pc-behind"></div>
                             <div class="pc-card-shell">
                                 <section class="pc-card">
@@ -239,18 +247,22 @@
                                         <div class="pc-shine"></div>
                                         <div class="pc-glare"></div>
                                         <div class="pc-content pc-avatar-content">
-                                            <img class="avatar" src="assets/profile_authentic.png" alt="Saravana Prakash R avatar" loading="lazy" onerror="this.style.display='none'" />
+                                            <img class="avatar" src="assets/profile_authentic.png"
+                                                alt="Saravana Prakash R avatar" loading="lazy"
+                                                onerror="this.style.display='none'" />
                                             <div class="pc-user-info">
                                                 <div class="pc-user-details">
                                                     <div class="pc-mini-avatar">
-                                                        <img src="assets/profile_authentic.png" alt="Saravana Prakash R mini avatar" loading="lazy" />
+                                                        <img src="assets/profile_authentic.png"
+                                                            alt="Saravana Prakash R mini avatar" loading="lazy" />
                                                     </div>
                                                     <div class="pc-user-text">
                                                         <div class="pc-handle">@srvnsp</div>
                                                         <div class="pc-status">Online</div>
                                                     </div>
                                                 </div>
-                                                <button class="pc-contact-btn" type="button" aria-label="Contact Saravana Prakash R">
+                                                <button class="pc-contact-btn" type="button"
+                                                    aria-label="Contact Saravana Prakash R">
                                                     Contact Me
                                                 </button>
                                             </div>
@@ -339,13 +351,15 @@
                                 <div class="exp-card-header">
                                     <span class="timeline-date">JAN 2025 &ndash; AUG 2026</span>
                                     <div class="exp-logo-wrapper">
-                                        <img src="assets/digifox_studio_logo.webp" alt="Digifox Studio Logo" class="exp-logo-img">
+                                        <img src="assets/digifox_studio_logo.webp" alt="Digifox Studio Logo"
+                                            class="exp-logo-img">
                                     </div>
                                 </div>
                                 <h3>Engineer - Immersive Tech</h3>
                                 <h4>Digifox Studio</h4>
                                 <ul>
-                                    <li>Developed safety training module and vehicle simulator for industrial applications</li>
+                                    <li>Developed safety training module and vehicle simulator for industrial
+                                        applications</li>
                                     <li>Built AR car configurator using ARCore technology</li>
                                 </ul>
                             </div>
@@ -358,7 +372,8 @@
                                     </div>
                                 </div>
                                 <div class="lanyard-hint">
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
@@ -375,7 +390,8 @@
                                 <div class="exp-card-header">
                                     <span class="timeline-date">MAY 2022 &ndash; NOV 2024</span>
                                     <div class="exp-logo-wrapper">
-                                        <img src="assets/Madras%20Mindworks.webp" alt="Madras Mindworks Logo" class="exp-logo-img">
+                                        <img src="assets/Madras%20Mindworks.webp" alt="Madras Mindworks Logo"
+                                            class="exp-logo-img">
                                     </div>
                                 </div>
                                 <h3>AR/VR Developer</h3>
@@ -395,7 +411,8 @@
                                     </div>
                                 </div>
                                 <div class="lanyard-hint">
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
@@ -410,7 +427,8 @@
                             <div class="exp-card-header">
                                 <span class="timeline-date">JUN 2021 &ndash; MAY 2022</span>
                                 <div class="exp-logo-wrapper">
-                                    <img src="assets/Avon%20Solutions.webp" alt="Avon Solutions Logo" class="exp-logo-img">
+                                    <img src="assets/Avon%20Solutions.webp" alt="Avon Solutions Logo"
+                                        class="exp-logo-img">
                                 </div>
                             </div>
                             <h3>Web Developer</h3>
@@ -439,8 +457,10 @@
                         </div>
                         <div class="project-content">
                             <h3>VR Vestibular Rehabilitation</h3>
-                            <p>Developed a high-fidelity VR vestibular rehabilitation system simulating equine-assisted therapy.
-                                Implemented 5Hz real-time patient biomechanical tracking (Center of Mass &amp; head posture) with WebSocket
+                            <p>Developed a high-fidelity VR vestibular rehabilitation system simulating equine-assisted
+                                therapy.
+                                Implemented 5Hz real-time patient biomechanical tracking (Center of Mass &amp; head
+                                posture) with WebSocket
                                 telemetry streaming and REST API session logging.</p>
                             <div class="project-tags">
                                 <span class="tag">Unity</span>
@@ -455,12 +475,16 @@
                     <!-- Project - 3D Product Configurator -->
                     <div class="project-card glass" data-project="product-configurator">
                         <div class="project-image">
-                            <img src="assets/projects/WEBP/product_configurator.png" alt="3D Product Configurator with AI Reviewer"
+                            <img src="assets/projects/WEBP/product_configurator.png"
+                                alt="3D Product Configurator with AI Reviewer"
                                 style="width: 100%; height: 100%; object-fit: cover;" />
                         </div>
                         <div class="project-content">
                             <h3>3D Product Configurator with AI Reviewer</h3>
-                            <p>Engineered an interactive 3D product configurator in Unity. Built a smart submesh texture routing engine to prevent dual-mesh wrapping, integrated real-time upload/download progress sliders, and designed an AI sentiment analysis panel powered by Gemini API featuring cubic-eased score countups and selectable custom color animation sweeps.</p>
+                            <p>Engineered an interactive 3D product configurator in Unity. Built a smart submesh texture
+                                routing engine to prevent dual-mesh wrapping, integrated real-time upload/download
+                                progress sliders, and designed an AI sentiment analysis panel powered by Gemini API
+                                featuring cubic-eased score countups and selectable custom color animation sweeps.</p>
                             <div class="project-tags">
                                 <span class="tag">Unity</span>
                                 <span class="tag">WebGL</span>
@@ -479,7 +503,9 @@
                         </div>
                         <div class="project-content">
                             <h3>Eye-Tracking Product Analytics (v3.0)</h3>
-                            <p>Engineered a non-destructive 3D Ghost Mesh heatmap projection overlay for package design analysis. Developed runtime cylindrical/planar UV mapping, dual-product A/B gaze comparison, and multi-mode 2D/3D tracking with binary GLB/GLTF exporter integration.</p>
+                            <p>Engineered a non-destructive 3D Ghost Mesh heatmap projection overlay for package design
+                                analysis. Developed runtime cylindrical/planar UV mapping, dual-product A/B gaze
+                                comparison, and multi-mode 2D/3D tracking with binary GLB/GLTF exporter integration.</p>
                             <div class="project-tags">
                                 <span class="tag">Unity</span>
                                 <span class="tag">Eye Tracking</span>
@@ -700,9 +726,10 @@
                     </div>
 
                 </div>
-                
+
                 <div class="view-more-container" style="text-align: center; margin-top: 80px; padding-bottom: 20px;">
-                    <button id="view-more-projects-btn" class="nav-btn-resume" style="display: inline-flex; cursor: pointer;">
+                    <button id="view-more-projects-btn" class="nav-btn-resume"
+                        style="display: inline-flex; cursor: pointer;">
                         View All Projects
                     </button>
                 </div>
@@ -766,10 +793,12 @@
                     <div class="skill-category">
                         <h3>Primary Skills</h3>
                         <div class="skills-grid">
-                             <div class="skill-item glass">
+                            <div class="skill-item glass">
                                 <div class="skill-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="url(#xr-gradient)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 9.5H3a1 1 0 0 0-1 1v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6a1 1 0 0 0-1-1z" />
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="url(#xr-gradient)" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M21 9.5H3a1 1 0 0 0-1 1v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6a1 1 0 0 0-1-1z" />
                                         <path d="M6 13h2v2H6z" />
                                         <path d="M16 13h2v2h-2z" />
                                         <path d="M12 9.5v-3a2 2 0 0 1 2-2h2" />
@@ -781,7 +810,8 @@
                             </div>
                             <div class="skill-item glass">
                                 <div class="skill-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="url(#xr-gradient)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="url(#xr-gradient)" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round">
                                         <polygon points="12 2 2 7 12 12 22 7 12 2" />
                                         <polyline points="2 17 12 22 22 17" />
                                         <polyline points="2 12 12 17 22 12" />
@@ -792,7 +822,8 @@
                             </div>
                             <div class="skill-item glass">
                                 <div class="skill-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="url(#xr-gradient)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="url(#xr-gradient)" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
                                         <path d="M12 7c0 0 0 5-5 5 5 0 5 5 5 5s0-5 5-5c-5 0-5-5-5-5z" />
                                         <circle cx="12" cy="12" r="1.5" />
@@ -803,7 +834,8 @@
                             </div>
                             <div class="skill-item glass">
                                 <div class="skill-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="url(#xr-gradient)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="url(#xr-gradient)" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round">
                                         <circle cx="18" cy="5" r="3" />
                                         <circle cx="6" cy="12" r="3" />
                                         <circle cx="18" cy="19" r="3" />
@@ -879,11 +911,13 @@
         <!-- Disclaimer Section -->
         <section id="disclaimer" class="disclaimer">
             <div class="container">
-                <div class="disclaimer-card glass pixel-card" data-variant="cyber" data-gap="8" data-speed="35" data-colors="#00f2ff,#38bdf8,#0ea5e9,#0284c7,#ffffff">
+                <div class="disclaimer-card glass pixel-card" data-variant="cyber" data-gap="8" data-speed="35"
+                    data-colors="#00f2ff,#38bdf8,#0ea5e9,#0284c7,#ffffff">
                     <canvas class="pixel-canvas"></canvas>
                     <div class="disclaimer-header">
                         <div class="disclaimer-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <line x1="12" y1="8" x2="12" y2="12"></line>
                                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
@@ -892,9 +926,12 @@
                         <h3 class="disclaimer-heading">Disclaimer &amp; Professional Notice</h3>
                     </div>
                     <p class="disclaimer-text">
-                        The projects and case studies showcased on this portfolio website are for illustrative purposes only. 
-                        Some work is protected under Non-Disclosure Agreements (NDAs), and any proprietary information has been excluded or anonymized. 
-                        All prototypes, applications, and technical demonstrations reflect my role, skills, and experience as an XR Developer and are presented solely to showcase my development capabilities. 
+                        The projects and case studies showcased on this portfolio website are for illustrative purposes
+                        only.
+                        Some work is protected under Non-Disclosure Agreements (NDAs), and any proprietary information
+                        has been excluded or anonymized.
+                        All prototypes, applications, and technical demonstrations reflect my role, skills, and
+                        experience as an XR Developer and are presented solely to showcase my development capabilities.
                         These materials are not intended for commercial use or redistribution.
                     </p>
                 </div>
@@ -916,11 +953,12 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="assets/profile-card.js?v=25"></script>
-    <script src="assets/lanyard-3d.js?v=25"></script>
-    <script src="assets/pixel-card.js?v=25"></script>
-    <script src="main.js?v=25"></script>
-    <script src="loader.js?v=25"></script>
+    <script src="assets/profile-card.js?v=26"></script>
+    <script src="assets/lanyard-3d.js?v=26"></script>
+    <script src="assets/pixel-card.js?v=26"></script>
+    <script src="assets/glass-surface.js?v=26"></script>
+    <script src="main.js?v=26"></script>
+    <script src="loader.js?v=26"></script>
 </body>
 
 </html>
