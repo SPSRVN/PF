@@ -2,6 +2,7 @@ import React from 'react';
 import { portfolioData } from './data';
 import { GlassCard, LiquidButton } from './components/UIComponents';
 import ProfileCard from './components/ProfileCard';
+import PixelCard from './components/PixelCard';
 import './App.css';
 
 const PortfolioApp = () => {
@@ -67,8 +68,31 @@ const PortfolioApp = () => {
                     </GlassCard>
                 ))}
             </section>
+
+            {/* Disclaimer Section */}
+            <section id="disclaimer" className="disclaimer-section">
+                <PixelCard variant="blue" className="disclaimer-card glass" gap={8} speed={35} colors="#00f2ff,#38bdf8,#0ea5e9,#0284c7,#ffffff">
+                    <div className="disclaimer-header">
+                        <div className="disclaimer-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                        </div>
+                        <h3 className="disclaimer-heading">Disclaimer &amp; Professional Notice</h3>
+                    </div>
+                    <p className="disclaimer-text">
+                        The projects and case studies showcased on this portfolio website are for illustrative purposes only. 
+                        Some work is protected under Non-Disclosure Agreements (NDAs), and any proprietary information has been excluded or anonymized. 
+                        All prototypes, applications, and technical demonstrations reflect my role, skills, and experience as an XR Developer and are presented solely to showcase my development capabilities. 
+                        These materials are not intended for commercial use or redistribution.
+                    </p>
+                </PixelCard>
+            </section>
         </div>
     );
 };
 
 export default PortfolioApp;
+
